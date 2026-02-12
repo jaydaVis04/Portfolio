@@ -164,15 +164,23 @@ body {
   100% { clip-path: inset(38% 0 40% 0); }
 }
 
-/* Neon Glow - Dynamic */
+/* Neon Glow - Dynamic, lighter on mobile */
 .neon-text {
   text-shadow: 
-    0 0 7px var(--glow-color),
-    0 0 10px var(--glow-color),
-    0 0 21px var(--glow-color),
-    0 0 42px var(--glow-color),
-    0 0 82px var(--glow-color);
+    0 0 5px var(--glow-color),
+    0 0 8px var(--glow-color);
   transition: text-shadow 0.8s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .neon-text {
+    text-shadow: 
+      0 0 7px var(--glow-color),
+      0 0 10px var(--glow-color),
+      0 0 21px var(--glow-color),
+      0 0 42px var(--glow-color),
+      0 0 82px var(--glow-color);
+  }
 }
 
 .neon-border {

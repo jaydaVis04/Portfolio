@@ -53,9 +53,9 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Floating Cubes Background */}
+      {/* Floating Cubes Background - Hidden on Mobile */}
       {floatingCubes.length > 0 && (
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="hidden md:block absolute inset-0 pointer-events-none">
           {floatingCubes.map((cube) => (
             <motion.div
               key={cube.id}

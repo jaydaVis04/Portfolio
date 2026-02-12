@@ -97,7 +97,7 @@ export default function ResumeSelector() {
                         {resume.description}
                       </div>
                       <div className="text-xs text-[var(--cyber-primary)]/40 font-mono mt-2">
-                        Click to download • Hover to preview theme
+                        Click to download
                       </div>
                     </div>
                   </div>
