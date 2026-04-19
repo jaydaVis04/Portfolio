@@ -50,10 +50,11 @@ export default function ResumeSelector() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="px-6 py-3 border-2 border-[var(--cyber-primary)] text-[var(--cyber-primary)] font-mono font-bold hover:bg-[var(--cyber-primary)] hover:text-cyber-dark transition-all duration-300 neon-border"
+        className="cyber-panel px-4 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 neon-border"
+        style={{ color: 'var(--cyber-primary)' }}
       >
         <span className="flex items-center gap-2">
-          📄 Resumes
+          Resume Vault
           <motion.span
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
@@ -70,10 +71,10 @@ export default function ResumeSelector() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full mt-2 right-0 z-50 min-w-[300px]"
+            className="absolute right-0 top-full z-50 mt-3 min-w-[320px]"
             onMouseLeave={handleLeave}
           >
-            <div className="bg-cyber-dark border-2 border-[var(--cyber-primary)] neon-border p-2">
+            <div className="terminal-window p-2 neon-border">
               {resumes.map((resume, index) => (
                 <motion.a
                   key={resume.id}
@@ -83,21 +84,22 @@ export default function ResumeSelector() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onMouseEnter={() => handleHover(resume.id, resume.theme)}
-                  className={`block p-4 mb-2 last:mb-0 border border-[var(--cyber-primary)]/30 hover:border-[var(--cyber-primary)] transition-all group ${
+                  className={`block mb-2 border p-4 transition-all last:mb-0 group ${
                     hoveredResume === resume.id ? 'bg-[var(--cyber-primary)]/10' : ''
                   }`}
+                  style={{ borderColor: 'rgba(0,255,65,0.18)' }}
                 >
                   <div className="flex items-start gap-3">
-                    <span className="text-2xl">{resume.icon}</span>
+                    <span className="font-terminal text-3xl" style={{ color: 'var(--cyber-primary-light)' }}>{resume.icon}</span>
                     <div className="flex-1">
-                      <div className="font-mono font-bold text-[var(--cyber-primary)] group-hover:text-[var(--cyber-primary-light)] transition-colors">
+                      <div className="font-mono text-sm font-bold uppercase tracking-[0.16em] transition-colors group-hover:text-[var(--cyber-primary-light)]" style={{ color: 'var(--cyber-primary)' }}>
                         {resume.title}
                       </div>
-                      <div className="text-sm text-[var(--cyber-primary)]/60 font-mono mt-1">
+                      <div className="mt-1 text-sm font-mono" style={{ color: 'var(--cyber-primary)', opacity: 0.6 }}>
                         {resume.description}
                       </div>
-                      <div className="text-xs text-[var(--cyber-primary)]/40 font-mono mt-2">
-                        Click to download
+                      <div className="mt-2 text-xs uppercase tracking-[0.16em] font-mono" style={{ color: 'var(--cyber-primary)', opacity: 0.4 }}>
+                        Download PDF
                       </div>
                     </div>
                   </div>

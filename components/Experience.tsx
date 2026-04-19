@@ -1,211 +1,162 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
-type WorkExperience = {
-  kind: 'work';
-  title: string;
-  company: string;
-  period: string;
-  desc: string;
-};
+const workExperience = [
+  {
+    title: 'STEM Teacher',
+    company: 'Snapology',
+    location: 'Westbury, NY',
+    period: 'January 2024 - Present',
+    description:
+      'Design and lead structured robotics and engineering sessions for 100+ students, developing problem-solving, logical reasoning, and teamwork through hands-on STEM activities.',
+  },
+  {
+    title: 'Coding Coach',
+    company: 'The Coder School',
+    location: 'Bellmore, NY',
+    period: 'March 2023 - November 2023',
+    description:
+      'Delivered project-based Python and Scratch instruction for 100+ students, guiding debugging, iteration, and foundational programming habits.',
+  },
+];
 
-type ProjectExperience = {
-  kind: 'project';
-  title: string;
-  type: string;
-  desc: string;
-  tech: string[];
-};
-
-type Experiences = {
-  work: WorkExperience[];
-  projects: ProjectExperience[];
-};
+const internshipTracks = [
+  {
+    title: 'SOC / Detection',
+    summary:
+      'Security+ certified and strongest in phishing analysis, log review, packet inspection, timeline thinking, and translating technical findings into clean incident notes.',
+    skills: ['Alert triage', 'IOC analysis', 'Wireshark', 'tcpdump', 'Linux auth logs', 'Threat intel'],
+  },
+  {
+    title: 'Security Engineering',
+    summary:
+      'Comfortable with secure service setup, TLS/HTTPS deployment, DNS and SSH hardening, IAM concepts, Linux administration, and infrastructure-level security controls.',
+    skills: ['TLS / X.509', 'Apache', 'Bind9', 'LDAP', 'NFS', 'OpenSSH'],
+  },
+  {
+    title: 'Offensive Security',
+    summary:
+      'Hands-on with exploit reproduction, shellcode analysis, format string and buffer overflow labs, protocol abuse testing, and clear remediation-oriented reporting.',
+    skills: ['GDB', 'Metasploit', 'Burp Suite', 'Nmap', 'Assembly', 'Exploit dev'],
+  },
+  {
+    title: 'Software / Backend',
+    summary:
+      'Built secure APIs, telemetry pipelines, automated testing, data models, and CLI workflows with a focus on structure, repeatability, and maintainable architecture.',
+    skills: ['Node.js', 'TypeScript', 'Python', 'PostgreSQL', 'Prisma', 'Jest / Pytest'],
+  },
+];
 
 export default function Experience() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  const experiences: Experiences = {
-    work: [
-      {
-        kind: 'work',
-        title: 'STEM Teacher',
-        company: 'Snapology',
-        period: 'Jan 2024 - Present',
-        desc: 'Lead STEM instruction for 100+ students using LEGO robotics',
-      },
-      {
-        kind: 'work',
-        title: 'Floater',
-        company: 'Sid Jacobson JCC',
-        period: 'Sep 2025 - Present',
-        desc: 'Assisted teachers and supervised small groups for smooth classroom operations',
-      },
-      {
-        kind: 'work',
-        title: 'Coding Coach',
-        company: 'The Coder School',
-        period: 'Mar 2023 - Nov 2023',
-        desc: 'Mentored 100+ students in Python & Scratch through project-based learning',
-      },
-      {
-        kind: 'work',
-        title: 'Customer Service Associate',
-        company: 'Floor & Decor',
-        period: 'Sep 2023 - Dec 2023',
-        desc: 'Assisted customers with purchases, maintained organized areas, handled cash drawer',
-      },
-      {
-        kind: 'work',
-        title: 'Service Champion',
-        company: 'Taco Bell',
-        period: 'Sep 2020 - Dec 2022',
-        desc: 'Served 150-300+ guests per shift across counter, drive-thru, and mobile orders',
-      },
-    ],
-    projects: [
-      {
-        kind: 'project',
-        title: 'Phishing Analysis Pipeline',
-        type: 'Rodman Project',
-        desc: 'Built automated phishing detection using AI classifier, threat intelligence, and VM sandbox analysis',
-        tech: ['Python', 'Multipass', 'TLS', 'VirusTotal'],
-      },
-      {
-        kind: 'project',
-        title: 'SecPipe',
-        type: 'Security Project',
-        desc: 'Python telemetry pipeline with MITRE ATT&CK mapped detections and multi-format export',
-        tech: ['Python', 'SQLite', 'GitHub Actions'],
-      },
-      {
-        kind: 'project',
-        title: 'jLedger',
-        type: 'Full-Stack',
-        desc: 'Personal finance platform with JWT refresh tokens, RBAC, and append-only ledger model',
-        tech: ['TypeScript', 'Node.js', 'PostgreSQL', 'Prisma'],
-      },
-    ],
-  };
-
-  type TabKey = keyof Experiences;
-
-  const [activeTab, setActiveTab] = useState<TabKey>('work');
-
-  const tabs: { id: TabKey; label: string; icon: string }[] = [
-    { id: 'work', label: 'WORK EXPERIENCE', icon: '💼' },
-    { id: 'projects', label: 'PROJECTS', icon: '🚀' },
-  ];
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
     <section
       id="experience"
       ref={ref}
-      className="relative py-32 px-4"
-      style={{ backgroundColor: 'rgba(0,255,65,0.02)' }}
+      className="relative px-4 py-32"
+      style={{
+        background:
+          'linear-gradient(180deg, rgba(0,255,65,0.035) 0%, rgba(0,255,65,0.01) 100%)',
+      }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl md:text-7xl font-display font-black mb-4 neon-text">
+          <p className="section-label mb-4">Experience / Internship Paths</p>
+          <h2 className="mb-4 text-5xl font-display font-black neon-text md:text-7xl">
             EXPERIENCE
           </h2>
-          <div
-            className="w-32 h-1 mb-12"
-            style={{ backgroundColor: 'var(--cyber-primary)' }}
-          />
+          <div className="mb-6 h-1 w-32" style={{ backgroundColor: 'var(--cyber-primary)' }} />
+          <p className="max-w-3xl font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
+            The work history shows leadership and teaching range, while the track cards below make it obvious where that experience maps into real internship roles.
+          </p>
         </motion.div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap gap-4 mb-12">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className="px-6 py-3 font-mono font-bold border-2 transition-all"
-              style={{
-                backgroundColor:
-                  activeTab === tab.id
-                    ? 'var(--cyber-primary)'
-                    : 'transparent',
-                borderColor: 'var(--cyber-primary)',
-                color:
-                  activeTab === tab.id
-                    ? 'var(--cyber-dark)'
-                    : 'var(--cyber-primary)',
-              }}
-            >
-              <span className="mr-2">{tab.icon}</span>
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {experiences[activeTab].map((exp, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="cyber-panel neon-border p-6 transition-all"
-            >
-              <h3
-                className="text-xl font-display font-bold mb-2"
-                style={{ color: 'var(--cyber-primary-light)' }}
-              >
-                {exp.title}
-              </h3>
-
-              {exp.kind === 'work' && (
-                <p
-                  className="font-mono text-sm mb-2"
-                  style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}
-                >
-                  {exp.company} • {exp.period}
-                </p>
-              )}
-
-              {exp.kind === 'project' && (
-                <>
-                  <span
-                    className="inline-block px-2 py-1 border text-xs font-mono mb-2"
-                    style={{
-                      borderColor: 'var(--cyber-primary)',
-                      color: 'var(--cyber-primary)',
-                    }}
-                  >
-                    {exp.type}
-                  </span>
-
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {exp.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="cyber-chip px-2 py-1 text-xs font-mono"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </>
-              )}
-
-              <p
-                className="font-mono text-sm"
-                style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}
-              >
-                {exp.desc}
+        <div className="mt-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="terminal-window overflow-hidden"
+          >
+            <div className="terminal-bar">
+              <div className="terminal-dots">
+                <span />
+                <span />
+                <span />
+              </div>
+              <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em]" style={{ color: 'var(--cyber-primary)', opacity: 0.62 }}>
+                leadership.timeline
               </p>
-            </motion.div>
-          ))}
+            </div>
+            <div className="space-y-8 p-6">
+              {workExperience.map((job, index) => (
+                <div key={job.title} className="relative pl-6">
+                  <div
+                    className="absolute left-0 top-1 h-full w-px"
+                    style={{ background: index === workExperience.length - 1 ? 'linear-gradient(180deg, rgba(0,255,65,0.28), transparent)' : 'rgba(0,255,65,0.28)' }}
+                  />
+                  <div
+                    className="absolute left-[-5px] top-1 h-3 w-3 rounded-full"
+                    style={{ backgroundColor: 'var(--cyber-primary-light)', boxShadow: '0 0 14px var(--glow-color)' }}
+                  />
+                  <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em]" style={{ color: 'var(--cyber-primary)', opacity: 0.58 }}>
+                    {job.period}
+                  </p>
+                  <h3 className="mt-3 font-display text-2xl font-bold uppercase tracking-[0.06em]" style={{ color: 'var(--cyber-primary-light)' }}>
+                    {job.title}
+                  </h3>
+                  <p className="mt-1 font-mono text-sm" style={{ color: 'var(--cyber-primary)', opacity: 0.76 }}>
+                    {job.company} • {job.location}
+                  </p>
+                  <p className="mt-3 font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>
+                    {job.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="grid gap-6 md:grid-cols-2"
+          >
+            {internshipTracks.map((track, index) => (
+              <motion.div
+                key={track.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.45, delay: 0.35 + index * 0.08 }}
+                className="cyber-panel p-6"
+              >
+                <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em]" style={{ color: 'var(--cyber-primary)', opacity: 0.56 }}>
+                  Internship lane
+                </p>
+                <h3 className="mt-3 font-display text-2xl font-bold uppercase tracking-[0.08em]" style={{ color: 'var(--cyber-primary-light)' }}>
+                  {track.title}
+                </h3>
+                <p className="mt-4 font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
+                  {track.summary}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {track.skills.map((skill) => (
+                    <span key={skill} className="cyber-chip px-3 py-2 text-xs font-mono uppercase tracking-[0.14em]">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

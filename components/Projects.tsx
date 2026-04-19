@@ -1,6 +1,7 @@
 'use client';
+
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type GitHubRepo = {
   html_url: string;
@@ -11,63 +12,243 @@ type GitHubRepo = {
   forks_count: number;
 };
 
+const featuredProjects = [
+  {
+    title: 'Phishing Analysis Pipeline',
+    subtitle: 'Rodman project / phishing investigation workflow',
+    description:
+      'Built a phishing-analysis pipeline that checks suspicious URLs across an AI-based typosquat classifier, Google Safe Browsing, VirusTotal, and a disposable VM sandbox.',
+    details: [
+      'Provisioned a fresh Multipass VM per run and deployed a lightweight analyzer inside the sandbox.',
+      'Inspected redirects, content patterns, and TLS metadata before producing a risk verdict.',
+      'Aggregated all signals into a unified JSON report with parallel execution and strong sandbox-flow test coverage.',
+    ],
+    tech: ['Python', 'Multipass', 'Google Safe Browsing', 'VirusTotal', 'TLS metadata'],
+    link: 'https://github.com/jaydaVis04?tab=repositories',
+  },
+  {
+    title: 'SecPipe',
+    subtitle: 'Security telemetry pipeline / detection engineering',
+    description:
+      'Built a Python-based security telemetry pipeline that ingests multi-source logs, normalizes events into a common schema, and runs rule-based detections mapped to MITRE ATT&CK.',
+    details: [
+      'Implemented detections for brute force, password spraying, persistence, privilege escalation, and defense evasion.',
+      'Exported findings to JSONL, SQLite, Markdown, and webhook outputs through a CLI workflow.',
+      'Designed a plugin-style parser / detection / output registry architecture with type hints, pytest coverage, and GitHub Actions CI.',
+    ],
+    tech: ['Python', 'MITRE ATT&CK', 'SQLite', 'Pytest', 'GitHub Actions', 'JSONL'],
+    link: 'https://github.com/jaydaVis04?tab=repositories',
+  },
+  {
+    title: 'jLedger',
+    subtitle: 'Secure backend / financial data integrity',
+    description:
+      'Built a secure personal finance ledger with a TypeScript Node.js Express API, PostgreSQL, Prisma, JWT auth, refresh token rotation, and RBAC.',
+    details: [
+      'Used HttpOnly cookies for refresh token rotation and enforced an append-only ledger model at the database level.',
+      'Derived balances from transaction line items instead of mutating state directly, improving traceability.',
+      'Backed core flows with Jest and Supertest integration tests to catch auth and ledger regressions.',
+    ],
+    tech: ['TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma', 'Jest'],
+    link: 'https://github.com/jaydaVis04?tab=repositories',
+  },
+];
+
+const supportingProjects = [
+  {
+    title: 'Student Management System',
+    lane: 'C++ / Data systems',
+    summary:
+      'C++ application for teacher-managed student records with planned frontend support, authentication, secure file handling, MySQL storage, and unique student ID generation.',
+  },
+  {
+    title: 'My Todo App',
+    lane: 'Frontend / UX',
+    summary:
+      'Responsive task manager built with Svelte, Ionic-Svelte, HTML, and CSS, including task creation, toggling, keyboard shortcuts, dark mode, gradients, and animation polish.',
+  },
+  {
+    title: 'Web Data Extractor',
+    lane: 'Backend / Automation',
+    summary:
+      'Python crawler that traverses user-supplied URLs, extracts names, emails, courses, and other targets, and reports both the data and where it was found.',
+  },
+  {
+    title: 'Word Transformation and Analysis Tool',
+    lane: 'C++ / Data structures',
+    summary:
+      'C++ word transformation tool built with stacks, queues, vectors, hashmaps, and robust file error handling.',
+  },
+];
+
 export default function Projects() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
 
   useEffect(() => {
     fetch('https://api.github.com/users/jaydaVis04/repos?sort=updated&per_page=6')
-      .then(res => res.json())
-      .then(data => setRepos(data))
+      .then((res) => res.json())
+      .then((data) => setRepos(data))
       .catch(() => {});
   }, []);
 
-  const featured = [
-    { title: 'Phishing Analysis Pipeline', desc: 'Automated phishing detection using AI, threat intelligence, and VM sandbox', tech: ['Python', 'Multipass', 'VirusTotal'], link: 'https://github.com/jaydaVis04?tab=repositories', type: 'Security' },
-    { title: 'SecPipe', desc: 'Security telemetry pipeline with MITRE ATT&CK detection rules', tech: ['Python', 'SQLite', 'MITRE ATT&CK'], link: 'https://github.com/jaydaVis04?tab=repositories', type: 'Security' },
-    { title: 'jLedger', desc: 'Personal finance platform with JWT refresh tokens and RBAC', tech: ['TypeScript', 'Node.js', 'PostgreSQL'], link: 'https://github.com/jaydaVis04?tab=repositories', type: 'Full-Stack' },
-  ];
-
   return (
-    <section id="projects" ref={ref} className="relative py-32 px-4">
-      <div className="max-w-7xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-          <h2 className="text-5xl md:text-7xl font-display font-black mb-4 neon-text">PROJECTS</h2>
-          <div className="w-32 h-1 mb-12" style={{ backgroundColor: 'var(--cyber-primary)' }} />
+    <section id="projects" ref={ref} className="relative px-4 py-32">
+      <div className="mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="section-label mb-4">Case Studies / Build Log</p>
+          <h2 className="mb-4 text-5xl font-display font-black neon-text md:text-7xl">
+            PROJECTS
+          </h2>
+          <div className="mb-6 h-1 w-32" style={{ backgroundColor: 'var(--cyber-primary)' }} />
+          <p className="max-w-3xl font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
+            These are the projects that best represent how I think: collect signals, structure systems cleanly, test the right failure cases, and ship outputs that are useful to other people.
+          </p>
         </motion.div>
 
-        <h3 className="text-3xl font-display font-bold mb-8" style={{ color: 'var(--cyber-primary-light)' }}>FEATURED WORK</h3>
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {featured.map((p, i) => (
-            <motion.a key={i} href={p.link} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }} className="cyber-panel neon-border group block p-6 focus:outline-none focus-visible:scale-105" whileHover={{ scale: 1.03 }}>
-              <div className="flex justify-between mb-4">
-                <h4 className="text-xl font-display font-bold group-hover:text-gradient" style={{ color: 'var(--cyber-primary-light)' }}>{p.title}</h4>
-                <span className="cyber-chip px-2 py-1 text-xs font-mono">{p.type}</span>
-              </div>
-              <p className="font-mono text-sm mb-4" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>{p.desc}</p>
-              <div className="flex flex-wrap gap-2 mb-4">{p.tech.map(t => <span key={t} className="cyber-chip px-2 py-1 text-xs font-mono">{t}</span>)}</div>
-              <div className="flex items-center font-mono text-sm" style={{ color: 'var(--cyber-primary-light)' }}>View Project <svg className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg></div>
-            </motion.a>
-          ))}
-        </div>
+        <div className="mt-14 grid gap-8 xl:grid-cols-[1.15fr_0.85fr]">
+          <div className="grid gap-6">
+            {featuredProjects.map((project, index) => (
+              <motion.a
+                key={project.title}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.15 + index * 0.08 }}
+                className="terminal-window overflow-hidden transition-transform hover:-translate-y-1"
+              >
+                <div className="terminal-bar">
+                  <div className="terminal-dots">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em]" style={{ color: 'var(--cyber-primary)', opacity: 0.62 }}>
+                    case-study-{index + 1}
+                  </p>
+                </div>
+                <div className="space-y-6 p-6">
+                  <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                    <div>
+                      <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em]" style={{ color: 'var(--cyber-primary)', opacity: 0.56 }}>
+                        {project.subtitle}
+                      </p>
+                      <h3 className="mt-2 font-display text-3xl font-bold uppercase tracking-[0.06em]" style={{ color: 'var(--cyber-primary-light)' }}>
+                        {project.title}
+                      </h3>
+                    </div>
+                    <span className="cyber-chip px-3 py-2 text-xs font-mono uppercase tracking-[0.16em]">
+                      View Repo
+                    </span>
+                  </div>
 
-        <div className="flex justify-between items-center mb-8">
-          <h3 className="text-3xl font-display font-bold" style={{ color: 'var(--cyber-primary-light)' }}>GITHUB ACTIVITY</h3>
-          <a href="https://github.com/jaydaVis04" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-mono transition-colors" style={{ color: 'var(--cyber-primary)' }}><span>View All</span><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-        </div>
+                  <p className="font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.82 }}>
+                    {project.description}
+                  </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {repos.slice(0, 6).map((repo, i) => (
-            <motion.a key={i} href={repo.html_url} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.05 }} className="cyber-panel neon-border block p-6">
-              <h4 className="text-lg font-mono font-bold mb-3" style={{ color: 'var(--cyber-primary)' }}>{repo.name}</h4>
-              <p className="font-mono text-sm mb-4 line-clamp-2" style={{ color: 'var(--cyber-primary)', opacity: 0.7 }}>{repo.description || 'No description'}</p>
-              <div className="flex items-center justify-between text-xs font-mono">
-                {repo.language && <span style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>{repo.language}</span>}
-                <div className="flex gap-3" style={{ color: 'var(--cyber-primary)', opacity: 0.6 }}><span>★ {repo.stargazers_count}</span><span>⑂ {repo.forks_count}</span></div>
+                  <div className="grid gap-3">
+                    {project.details.map((detail) => (
+                      <div key={detail} className="terminal-line">
+                        <span className="terminal-prompt">&gt;</span>
+                        <span>{detail}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((item) => (
+                      <span key={item} className="cyber-chip px-3 py-2 text-xs font-mono uppercase tracking-[0.14em]">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+
+          <div className="grid gap-6">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.25 }}
+              className="cyber-panel p-6"
+            >
+              <h3 className="font-display text-2xl font-bold uppercase tracking-[0.08em]" style={{ color: 'var(--cyber-primary-light)' }}>
+                Supporting Work
+              </h3>
+              <div className="mt-5 space-y-5">
+                {supportingProjects.map((project) => (
+                  <div key={project.title} className="border-l pl-4" style={{ borderColor: 'rgba(0,255,65,0.16)' }}>
+                    <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em]" style={{ color: 'var(--cyber-primary)', opacity: 0.56 }}>
+                      {project.lane}
+                    </p>
+                    <p className="mt-2 font-display text-xl font-bold" style={{ color: 'var(--cyber-primary-light)' }}>
+                      {project.title}
+                    </p>
+                    <p className="mt-2 font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
+                      {project.summary}
+                    </p>
+                  </div>
+                ))}
               </div>
-            </motion.a>
-          ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.35 }}
+              className="cyber-panel p-6"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <h3 className="font-display text-2xl font-bold uppercase tracking-[0.08em]" style={{ color: 'var(--cyber-primary-light)' }}>
+                  GitHub Activity
+                </h3>
+                <a
+                  href="https://github.com/jaydaVis04"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-xs uppercase tracking-[0.18em]"
+                  style={{ color: 'var(--cyber-primary)' }}
+                >
+                  View all ↗
+                </a>
+              </div>
+              <div className="mt-5 grid gap-4">
+                {repos.slice(0, 6).map((repo) => (
+                  <a
+                    key={repo.name}
+                    href={repo.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border p-4 transition-colors hover:bg-white/[0.02]"
+                    style={{ borderColor: 'rgba(0,255,65,0.16)' }}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="font-display text-lg font-bold" style={{ color: 'var(--cyber-primary-light)' }}>
+                          {repo.name}
+                        </p>
+                        <p className="mt-2 font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.74 }}>
+                          {repo.description || 'No description available.'}
+                        </p>
+                      </div>
+                      <span className="font-mono text-xs uppercase tracking-[0.16em]" style={{ color: 'var(--cyber-primary)', opacity: 0.54 }}>
+                        {repo.language || 'Code'}
+                      </span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

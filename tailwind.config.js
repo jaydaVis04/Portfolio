@@ -24,7 +24,8 @@ module.exports = {
       },
       fontFamily: {
         'mono': ['JetBrains Mono', 'Courier New', 'monospace'],
-        'display': ['Orbitron', 'sans-serif'],
+        'display': ['Space Grotesk', 'Orbitron', 'sans-serif'],
+        'terminal': ['VT323', 'JetBrains Mono', 'monospace'],
       },
       animation: {
         'glow': 'glow 2s ease-in-out infinite alternate',

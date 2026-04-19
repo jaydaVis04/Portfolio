@@ -10,24 +10,24 @@ export default function Navigation() {
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(10, 14, 13, 0)', 'rgba(10, 14, 13, 0.95)']
+    ['rgba(5, 8, 7, 0.2)', 'rgba(5, 8, 7, 0.88)']
   );
 
   return (
     <motion.nav
       style={{ backgroundColor }}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--cyber-primary)]/20 backdrop-blur-sm"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--cyber-primary)]/15 backdrop-blur-xl"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <motion.a
             href="#"
-            className="text-2xl font-display font-black neon-text"
+            className="text-lg font-mono font-bold uppercase tracking-[0.32em] neon-text"
             style={{ color: 'var(--cyber-primary-light)' }}
             whileHover={{ scale: 1.05 }}
           >
-            &#60;JD /&#62;
+            JD//SYS
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -36,7 +36,7 @@ export default function Navigation() {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="font-mono hover:text-[var(--cyber-primary-light)] hover:neon-text transition-colors relative group"
+                className="font-mono text-sm uppercase tracking-[0.18em] hover:text-[var(--cyber-primary-light)] hover:neon-text transition-colors relative group"
                 style={{ color: 'var(--cyber-primary)' }}
               >
                 {item}
@@ -46,7 +46,9 @@ export default function Navigation() {
                 />
               </a>
             ))}
-            <ResumeSelector />
+            <div className="pl-2">
+              <ResumeSelector />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -80,7 +82,8 @@ export default function Navigation() {
       <motion.div
         initial={false}
         animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
-        className="md:hidden overflow-hidden bg-cyber-dark border-t border-[var(--cyber-primary)]/20"
+        className="md:hidden overflow-hidden border-t border-[var(--cyber-primary)]/20"
+        style={{ backgroundColor: 'rgba(4, 8, 6, 0.96)' }}
       >
         <div className="px-4 py-4 space-y-4">
           {['About', 'Experience', 'Labs', 'Projects', 'Contact'].map((item) => (
@@ -88,7 +91,7 @@ export default function Navigation() {
               key={item}
               href={`#${item.toLowerCase()}`}
               onClick={() => setIsOpen(false)}
-              className="block font-mono hover:text-[var(--cyber-primary-light)] hover:neon-text transition-colors"
+              className="block font-mono text-sm uppercase tracking-[0.18em] hover:text-[var(--cyber-primary-light)] hover:neon-text transition-colors"
               style={{ color: 'var(--cyber-primary)' }}
             >
               {item}
