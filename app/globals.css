@@ -191,6 +191,45 @@ body {
   transition: box-shadow 0.8s ease-in-out;
 }
 
+.cyber-panel {
+  border: 1px solid color-mix(in srgb, var(--cyber-primary) 45%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--cyber-primary) 9%, transparent), transparent 65%),
+    rgba(10, 14, 13, 0.82);
+  box-shadow:
+    0 0 10px color-mix(in srgb, var(--glow-color) 20%, transparent),
+    inset 0 0 10px color-mix(in srgb, var(--glow-color) 8%, transparent);
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.cyber-panel:hover,
+.cyber-panel:focus-visible {
+  border-color: color-mix(in srgb, var(--cyber-primary) 80%, white 20%);
+  box-shadow:
+    0 0 16px color-mix(in srgb, var(--glow-color) 30%, transparent),
+    inset 0 0 14px color-mix(in srgb, var(--glow-color) 12%, transparent);
+}
+
+.cyber-chip {
+  border: 1px solid color-mix(in srgb, var(--cyber-primary) 38%, transparent);
+  color: var(--cyber-primary-light);
+  background: color-mix(in srgb, var(--cyber-primary) 14%, transparent);
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.cyber-chip:hover,
+.cyber-chip:focus-visible {
+  border-color: color-mix(in srgb, var(--cyber-primary) 72%, white 10%);
+  background: color-mix(in srgb, var(--cyber-primary) 22%, transparent);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

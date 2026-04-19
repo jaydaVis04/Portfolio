@@ -155,11 +155,7 @@ export default function Experience() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="border p-6 neon-border transition-all"
-              style={{
-                borderColor: 'var(--cyber-primary)',
-                opacity: 0.3,
-              }}
+              className="cyber-panel neon-border p-6 transition-all"
             >
               <h3
                 className="text-xl font-display font-bold mb-2"
@@ -193,12 +189,7 @@ export default function Experience() {
                     {exp.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-2 py-1 border text-xs font-mono"
-                        style={{
-                          borderColor: 'var(--cyber-primary)',
-                          opacity: 0.3,
-                          color: 'var(--cyber-primary)',
-                        }}
+                        className="cyber-chip px-2 py-1 text-xs font-mono"
                       >
                         {t}
                       </span>

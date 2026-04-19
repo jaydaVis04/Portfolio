@@ -23,7 +23,7 @@ export default function Navigation() {
           {/* Logo */}
           <motion.a
             href="#"
-            className="text-2xl font-display font-black"
+            className="text-2xl font-display font-black neon-text"
             style={{ color: 'var(--cyber-primary-light)' }}
             whileHover={{ scale: 1.05 }}
           >
@@ -36,7 +36,7 @@ export default function Navigation() {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="font-mono hover:text-[var(--cyber-primary-light)] transition-colors relative group"
+                className="font-mono hover:text-[var(--cyber-primary-light)] hover:neon-text transition-colors relative group"
                 style={{ color: 'var(--cyber-primary)' }}
               >
                 {item}
@@ -88,7 +88,7 @@ export default function Navigation() {
               key={item}
               href={`#${item.toLowerCase()}`}
               onClick={() => setIsOpen(false)}
-              className="block font-mono hover:text-[var(--cyber-primary-light)] transition-colors"
+              className="block font-mono hover:text-[var(--cyber-primary-light)] hover:neon-text transition-colors"
               style={{ color: 'var(--cyber-primary)' }}
             >
               {item}

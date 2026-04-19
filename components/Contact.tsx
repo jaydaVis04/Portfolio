@@ -73,7 +73,7 @@ export default function Contact() {
               GET IN TOUCH
             </h3>
             <p className="font-mono mb-8 leading-relaxed" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>
-              I'm currently seeking internship opportunities in cybersecurity and software engineering.
+              I'm currently seeking internship opportunities in cybersecurity and software engineering, and I'm open to remote, hybrid, on-site, and relocation-friendly roles.
               Feel free to reach out if you'd like to connect!
             </p>
 
@@ -87,9 +87,7 @@ export default function Contact() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                  className="flex items-center gap-4 p-4 border neon-border hover:border-[var(--cyber-primary)]/60 transition-all group"
-                  style={{ borderColor: 'var(--cyber-primary)', borderWidth: '1px', opacity: 0.3 }}
-                  whileHover={{ opacity: 1 }}
+                  className="cyber-panel neon-border group flex items-center gap-4 p-4"
                 >
                   <div className="group-hover:scale-110 transition-transform" style={{ color: 'var(--cyber-primary-light)' }}>
                     {method.icon}
@@ -110,8 +108,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-8 p-6 border neon-border"
-              style={{ borderColor: 'var(--cyber-primary)', borderWidth: '1px', opacity: 0.3 }}
+              className="cyber-panel neon-border mt-8 p-6"
             >
               <h4 className="font-display font-bold mb-3" style={{ color: 'var(--cyber-primary-light)' }}>
                 AVAILABILITY
@@ -119,8 +116,8 @@ export default function Contact() {
               <p className="font-mono" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>
                 Open to internships and opportunities
               </p>
-              <p className="font-mono text-sm mt-2" style={{ color: 'var(--cyber-primary)', opacity: 0.6 }}>
-                Remote, hybrid, or on-site positions
+              <p className="font-mono text-sm mt-2" style={{ color: 'var(--cyber-primary)', opacity: 0.72 }}>
+                Remote, hybrid, on-site, and relocation-friendly positions
               </p>
             </motion.div>
           </motion.div>

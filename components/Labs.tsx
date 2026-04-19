@@ -120,17 +120,16 @@ export default function Labs() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: index * 0.03 }}
-              className="border p-4 hover:border-[var(--cyber-primary)] transition-all group"
-              style={{ borderColor: 'var(--cyber-primary)', borderWidth: '1px', opacity: 0.3 }}
-              whileHover={{ opacity: 1 }}
+              className="cyber-panel group p-4"
+              whileHover={{ scale: 1.01 }}
             >
               <h3
                 className="text-sm font-mono font-bold mb-2 group-hover:text-[var(--cyber-primary-light)] transition-colors"
-                style={{ color: 'var(--cyber-primary)' }}
+                style={{ color: 'var(--cyber-primary-light)' }}
               >
                 {lab.title}
               </h3>
-              <p className="text-xs font-mono leading-relaxed" style={{ color: 'var(--cyber-primary)', opacity: 0.6 }}>
+              <p className="text-xs font-mono leading-relaxed" style={{ color: 'var(--cyber-primary-light)', opacity: 0.88 }}>
                 {lab.desc}
               </p>
             </motion.div>

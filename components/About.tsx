@@ -50,7 +50,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12">
           <motion.div initial={{ opacity: 0, x: -50 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="space-y-6">
-            <div className="border p-6 neon-border" style={{ borderColor: 'var(--cyber-primary)', opacity: 0.3 }}>
+            <div className="cyber-panel neon-border p-6">
               <h3 className="text-2xl font-display font-bold mb-4" style={{ color: 'var(--cyber-primary-light)' }}>WHO I AM</h3>
               <p className="font-mono text-sm leading-relaxed mb-3" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>
                 I've been surrounded by technology since I was four—starting with my old Mozilla tablet, game consoles, and eventually my first laptop. I grew up gaming, pulling all-nighters on Minecraft, and even sneaking my parents' phone to stay online longer.
@@ -66,7 +66,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="border p-6 neon-border" style={{ borderColor: 'var(--cyber-primary)', opacity: 0.3 }}>
+            <div className="cyber-panel neon-border p-6">
               <h3 className="text-2xl font-display font-bold mb-4" style={{ color: 'var(--cyber-primary-light)' }}>EDUCATION</h3>
               <div className="space-y-3">
                 <div>
@@ -85,7 +85,7 @@ export default function About() {
 
           <motion.div initial={{ opacity: 0, x: 50 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.4 }} className="space-y-6">
             {skills.map((skillGroup, index) => (
-              <motion.div key={skillGroup.category} initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }} className="border p-6 neon-border hover:border-[var(--cyber-primary)]/60 transition-all" style={{ borderColor: 'var(--cyber-primary)', opacity: 0.3 }}>
+              <motion.div key={skillGroup.category} initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }} className="cyber-panel neon-border p-6">
                 <h4 className="text-lg font-display font-bold mb-4" style={{ color: 'var(--cyber-primary-light)' }}>{skillGroup.category}</h4>
                 {(skillGroup.category === 'Development' || skillGroup.category === 'Tools & Platforms') && skillGroup.logos.length > 0 ? (
                   <div className="space-y-4">
@@ -106,7 +106,7 @@ export default function About() {
                         }
                         return true;
                       }).map((skill) => (
-                        <span key={skill} className="px-3 py-1 border text-sm font-mono hover:bg-[var(--cyber-primary)]/20 transition-all cursor-default" style={{ borderColor: 'var(--cyber-primary)', opacity: 0.3, color: 'var(--cyber-primary)', backgroundColor: 'rgba(0, 255, 65, 0.1)' }}>
+                        <span key={skill} className="cyber-chip px-3 py-1 text-sm font-mono cursor-default">
                           {skill}
                         </span>
                       ))}
@@ -115,7 +115,7 @@ export default function About() {
                 ) : (
                   <div className="flex flex-wrap gap-2">
                     {skillGroup.items.map((skill) => (
-                      <span key={skill} className="px-3 py-1 border text-sm font-mono hover:bg-[var(--cyber-primary)]/20 transition-all cursor-default" style={{ borderColor: 'var(--cyber-primary)', opacity: 0.3, color: 'var(--cyber-primary)', backgroundColor: 'rgba(0, 255, 65, 0.1)' }}>
+                      <span key={skill} className="cyber-chip px-3 py-1 text-sm font-mono cursor-default">
                         {skill}
                       </span>
                     ))}

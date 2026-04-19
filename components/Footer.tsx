@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Navigate */}
           <div>
             <h4
-              className="font-display font-bold mb-4"
+              className="font-display font-bold mb-4 neon-text"
               style={{ color: 'var(--cyber-primary)' }}
             >
               NAVIGATE
@@ -42,7 +42,7 @@ export default function Footer() {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block font-mono text-sm transition-colors"
+                  className="block font-mono text-sm transition-colors hover:neon-text"
                   style={{
                     color: 'var(--cyber-primary)',
                     opacity: 0.6,
@@ -57,7 +57,7 @@ export default function Footer() {
           {/* Connect */}
           <div>
             <h4
-              className="font-display font-bold mb-4"
+              className="font-display font-bold mb-4 neon-text"
               style={{ color: 'var(--cyber-primary)' }}
             >
               CONNECT
@@ -70,7 +70,7 @@ export default function Footer() {
                 href="https://github.com/jaydaVis04"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors"
+                className="transition-colors hover:neon-text"
                 style={{ color: 'var(--cyber-primary)' }}
               >
                 GitHub
@@ -81,7 +81,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/jaydyn-davis-51b31b288"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors"
+                className="transition-colors hover:neon-text"
                 style={{ color: 'var(--cyber-primary)' }}
               >
                 LinkedIn
@@ -90,7 +90,7 @@ export default function Footer() {
               {/* Email */}
               <a
                 href="mailto:jaydyndavis04@gmail.com"
-                className="transition-colors"
+                className="transition-colors hover:neon-text"
                 style={{ color: 'var(--cyber-primary)' }}
               >
                 Email

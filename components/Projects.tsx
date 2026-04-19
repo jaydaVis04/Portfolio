@@ -2,10 +2,19 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 
+type GitHubRepo = {
+  html_url: string;
+  name: string;
+  description: string | null;
+  language: string | null;
+  stargazers_count: number;
+  forks_count: number;
+};
+
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const [repos, setRepos] = useState([]);
+  const [repos, setRepos] = useState<GitHubRepo[]>([]);
 
   useEffect(() => {
     fetch('https://api.github.com/users/jaydaVis04/repos?sort=updated&per_page=6')
@@ -15,29 +24,29 @@ export default function Projects() {
   }, []);
 
   const featured = [
-    { title: 'Phishing Analysis Pipeline', desc: 'Automated phishing detection using AI, threat intelligence, and VM sandbox', tech: ['Python', 'Multipass', 'VirusTotal'], link: 'https://github.com/jaydaVis04', type: 'Security' },
-    { title: 'SecPipe', desc: 'Security telemetry pipeline with MITRE ATT&CK detection rules', tech: ['Python', 'SQLite', 'MITRE ATT&CK'], link: 'https://github.com/jaydaVis04', type: 'Security' },
-    { title: 'jLedger', desc: 'Personal finance platform with JWT refresh tokens and RBAC', tech: ['TypeScript', 'Node.js', 'PostgreSQL'], link: 'https://github.com/jaydaVis04', type: 'Full-Stack' },
+    { title: 'Phishing Analysis Pipeline', desc: 'Automated phishing detection using AI, threat intelligence, and VM sandbox', tech: ['Python', 'Multipass', 'VirusTotal'], link: 'https://github.com/jaydaVis04?tab=repositories', type: 'Security' },
+    { title: 'SecPipe', desc: 'Security telemetry pipeline with MITRE ATT&CK detection rules', tech: ['Python', 'SQLite', 'MITRE ATT&CK'], link: 'https://github.com/jaydaVis04?tab=repositories', type: 'Security' },
+    { title: 'jLedger', desc: 'Personal finance platform with JWT refresh tokens and RBAC', tech: ['TypeScript', 'Node.js', 'PostgreSQL'], link: 'https://github.com/jaydaVis04?tab=repositories', type: 'Full-Stack' },
   ];
 
   return (
     <section id="projects" ref={ref} className="relative py-32 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-          <h2 className="text-5xl md:text-7xl font-display font-black mb-4 neon-text"></h2>
+          <h2 className="text-5xl md:text-7xl font-display font-black mb-4 neon-text">PROJECTS</h2>
           <div className="w-32 h-1 mb-12" style={{ backgroundColor: 'var(--cyber-primary)' }} />
         </motion.div>
 
         <h3 className="text-3xl font-display font-bold mb-8" style={{ color: 'var(--cyber-primary-light)' }}>FEATURED WORK</h3>
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           {featured.map((p, i) => (
-            <motion.a key={i} href={p.link} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }} className="border p-6 neon-border hover:border-[var(--cyber-primary)] hover:scale-105 transition-all group" style={{ borderColor: 'var(--cyber-primary)', opacity: 0.3 }}>
+            <motion.a key={i} href={p.link} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }} className="cyber-panel neon-border group block p-6 focus:outline-none focus-visible:scale-105" whileHover={{ scale: 1.03 }}>
               <div className="flex justify-between mb-4">
                 <h4 className="text-xl font-display font-bold group-hover:text-gradient" style={{ color: 'var(--cyber-primary-light)' }}>{p.title}</h4>
-                <span className="px-2 py-1 border text-xs font-mono" style={{ borderColor: 'var(--cyber-primary)', color: 'var(--cyber-primary)' }}>{p.type}</span>
+                <span className="cyber-chip px-2 py-1 text-xs font-mono">{p.type}</span>
               </div>
               <p className="font-mono text-sm mb-4" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>{p.desc}</p>
-              <div className="flex flex-wrap gap-2 mb-4">{p.tech.map(t => <span key={t} className="px-2 py-1 border text-xs font-mono" style={{ borderColor: 'var(--cyber-primary)', opacity: 0.3, color: 'var(--cyber-primary)' }}>{t}</span>)}</div>
+              <div className="flex flex-wrap gap-2 mb-4">{p.tech.map(t => <span key={t} className="cyber-chip px-2 py-1 text-xs font-mono">{t}</span>)}</div>
               <div className="flex items-center font-mono text-sm" style={{ color: 'var(--cyber-primary-light)' }}>View Project <svg className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg></div>
             </motion.a>
           ))}
@@ -49,8 +58,8 @@ export default function Projects() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {repos.slice(0, 6).map((repo: any, i) => (
-            <motion.a key={i} href={repo.html_url} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.05 }} className="border p-6 neon-border hover:border-[var(--cyber-primary)] transition-all" style={{ borderColor: 'var(--cyber-primary)', opacity: 0.3 }}>
+          {repos.slice(0, 6).map((repo, i) => (
+            <motion.a key={i} href={repo.html_url} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.05 }} className="cyber-panel neon-border block p-6">
               <h4 className="text-lg font-mono font-bold mb-3" style={{ color: 'var(--cyber-primary)' }}>{repo.name}</h4>
               <p className="font-mono text-sm mb-4 line-clamp-2" style={{ color: 'var(--cyber-primary)', opacity: 0.7 }}>{repo.description || 'No description'}</p>
               <div className="flex items-center justify-between text-xs font-mono">
