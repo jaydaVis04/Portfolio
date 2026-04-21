@@ -9,6 +9,7 @@ const profileStats = [
   { label: 'Minor', value: 'Finance' },
   { label: 'GPA', value: '3.21' },
   { label: 'Certification', value: 'CompTIA Security+' },
+  { label: 'Academic Role', value: 'Operating Systems TA' },
   { label: 'Location', value: 'Amityville, NY' },
 ];
 
@@ -96,6 +97,9 @@ export default function About() {
                   </p>
                   <p>
                     The teaching and mentorship roles matter here too. They forced me to explain technical ideas clearly, structure information, and stay patient while debugging with other people, which translates directly into better engineering and better security documentation.
+                  </p>
+                  <p>
+                    That now includes serving as a Teaching Assistant for Operating Systems at Hofstra, where I help students reason through processes, threads, scheduling, synchronization, memory management, file systems, and course assignments.
                   </p>
                   <p>
                     I am not trying to look like I only fit one internship lane. The portfolio now reflects the truth more accurately: I can contribute in SOC-oriented roles, security engineering, backend engineering, cloud security, and offensive security environments depending on the team.

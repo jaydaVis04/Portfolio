@@ -5,6 +5,14 @@ import { useRef } from 'react';
 
 const workExperience = [
   {
+    title: 'Teaching Assistant, Operating Systems',
+    company: 'Hofstra University',
+    location: 'Hempstead, NY',
+    period: 'Dr. Shan',
+    description:
+      'Provide academic support for Operating Systems students through one-on-one and small-group tutoring, assignment guidance, and exam review sessions. Help students break down processes, threads, CPU scheduling, synchronization, memory management, and file systems into practical problem-solving approaches.',
+  },
+  {
     title: 'STEM Teacher',
     company: 'Snapology',
     location: 'Westbury, NY',
