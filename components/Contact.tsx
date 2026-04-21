@@ -3,14 +3,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 
-const roleFit = [
-  'SOC Analyst internship',
-  'Security Engineering internship',
-  'Offensive Security internship',
-  'Cloud Security internship',
-  'Backend / Software Engineering internship',
-];
-
 const contactMethods = [
   { label: 'Email', value: 'jaydyndavis04@gmail.com', link: 'mailto:jaydyndavis04@gmail.com' },
   { label: 'Phone', value: '631-480-0444', link: 'tel:6314800444' },
@@ -51,8 +43,8 @@ export default function Contact() {
             CONTACT
           </h2>
           <div className="mb-6 h-1 w-32" style={{ backgroundColor: 'var(--cyber-primary)' }} />
-          <p className="max-w-3xl font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>
-            I am open to remote, hybrid, on-site, and relocation-friendly internships. The strongest fit is anywhere I can contribute to secure systems, backend engineering, detection, infrastructure, or offensive validation work while continuing to deepen technical range.
+          <p className="max-w-2xl font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>
+            Open to remote, hybrid, on-site, and relocation-friendly internships in security or software engineering.
           </p>
         </motion.div>
 
@@ -63,45 +55,6 @@ export default function Contact() {
             transition={{ duration: 0.55, delay: 0.15 }}
             className="grid gap-6"
           >
-            <div className="terminal-window overflow-hidden">
-              <div className="terminal-bar">
-                <div className="terminal-dots">
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em]" style={{ color: 'var(--cyber-primary)', opacity: 0.62 }}>
-                  outreach.summary
-                </p>
-              </div>
-              <div className="space-y-5 p-6">
-                <div>
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em]" style={{ color: 'var(--cyber-primary)', opacity: 0.56 }}>
-                    Candidate
-                  </p>
-                  <h3 className="mt-2 font-display text-3xl font-bold uppercase tracking-[0.06em]" style={{ color: 'var(--cyber-primary-light)' }}>
-                    Jaydyn Davis
-                  </h3>
-                  <p className="mt-2 font-mono text-sm" style={{ color: 'var(--cyber-primary)', opacity: 0.76 }}>
-                    Amityville, NY • Hofstra University • Expected May 2027
-                  </p>
-                </div>
-
-                <p className="font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>
-                  Security+ certified Computer Science and Cybersecurity student with practical work across threat analysis, secure configuration, backend development, cloud concepts, low-level debugging, and technical communication.
-                </p>
-
-                <div className="grid gap-3">
-                  {roleFit.map((role) => (
-                    <div key={role} className="terminal-line">
-                      <span className="terminal-prompt">&gt;</span>
-                      <span>{role}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
             <div className="cyber-panel p-6">
               <h3 className="font-display text-2xl font-bold uppercase tracking-[0.08em]" style={{ color: 'var(--cyber-primary-light)' }}>
                 Direct Channels

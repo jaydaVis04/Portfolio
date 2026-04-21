@@ -5,27 +5,27 @@
 @tailwind utilities;
 
 :root {
-  --cyber-primary: #e8dcc3;
-  --cyber-primary-light: #fff6dc;
-  --cyber-primary-dark: #35543c;
-  --cyber-dark: #11130d;
-  --cyber-darker: #070806;
-  --cyber-panel: rgba(20, 22, 15, 0.86);
+  --cyber-primary: #1d281b;
+  --cyber-primary-light: #31452b;
+  --cyber-primary-dark: #b9a77f;
+  --cyber-dark: #f4ecd8;
+  --cyber-darker: #0b100a;
+  --cyber-panel: rgba(255, 250, 232, 0.78);
   --glow-color: #39ff14;
   --matrix-green: #39ff14;
 }
 
 [data-theme="blue"] {
-  --cyber-primary: #e8dcc3;
-  --cyber-primary-light: #fff6dc;
-  --cyber-primary-dark: #244751;
+  --cyber-primary: #172d33;
+  --cyber-primary-light: #244751;
+  --cyber-primary-dark: #9eb8bd;
   --glow-color: #00d9ff;
 }
 
 [data-theme="red"] {
-  --cyber-primary: #e8dcc3;
-  --cyber-primary-light: #fff6dc;
-  --cyber-primary-dark: #53313a;
+  --cyber-primary: #3a1822;
+  --cyber-primary-light: #53313a;
+  --cyber-primary-dark: #c9a3a9;
   --glow-color: #ff0055;
 }
 
@@ -41,9 +41,9 @@ html {
 
 body {
   background:
-    radial-gradient(circle at top, rgba(232, 220, 195, 0.1), transparent 34%),
-    radial-gradient(circle at 80% 20%, rgba(57, 255, 20, 0.07), transparent 24%),
-    linear-gradient(180deg, #070806 0%, #12150e 42%, #0a0b08 100%);
+    radial-gradient(circle at 18% 12%, rgba(57, 255, 20, 0.12), transparent 22%),
+    radial-gradient(circle at 80% 8%, rgba(185, 167, 127, 0.36), transparent 28%),
+    linear-gradient(180deg, #f7efd9 0%, #efe4c8 42%, #e5d7b8 100%);
   color: var(--cyber-primary);
   font-family: 'JetBrains Mono', monospace;
   overflow-x: hidden;
@@ -104,8 +104,8 @@ body {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(232, 220, 195, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(57, 255, 20, 0.018) 1px, transparent 1px);
+    linear-gradient(rgba(29, 40, 27, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 255, 20, 0.035) 1px, transparent 1px);
   background-size: 42px 42px;
   pointer-events: none;
   z-index: 0;
@@ -142,13 +142,13 @@ body {
 
 .glitch::before {
   left: 2px;
-  text-shadow: -2px 0 #ff00ff;
+  text-shadow: -2px 0 rgba(57, 255, 20, 0.34);
   animation: glitch-1 2s infinite linear alternate-reverse;
 }
 
 .glitch::after {
   left: -2px;
-  text-shadow: 2px 0 #00ffff;
+  text-shadow: 2px 0 rgba(185, 167, 127, 0.5);
   animation: glitch-2 3s infinite linear alternate-reverse;
 }
 
@@ -195,13 +195,14 @@ body {
 }
 
 .cyber-panel {
-  border: 1px solid color-mix(in srgb, var(--cyber-primary) 26%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cyber-primary) 20%, var(--cyber-primary-dark) 28%);
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--cyber-primary) 7%, transparent), transparent 68%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent 68%),
     var(--cyber-panel);
   box-shadow:
-    0 0 18px color-mix(in srgb, var(--glow-color) 8%, transparent),
-    inset 0 0 12px color-mix(in srgb, var(--cyber-primary) 5%, transparent);
+    0 18px 40px rgba(54, 45, 25, 0.08),
+    0 0 18px color-mix(in srgb, var(--glow-color) 5%, transparent),
+    inset 0 0 12px rgba(255, 255, 255, 0.24);
   transition:
     border-color 0.3s ease,
     background-color 0.3s ease,
@@ -213,13 +214,14 @@ body {
 .cyber-panel:focus-visible {
   border-color: color-mix(in srgb, var(--cyber-primary) 80%, white 20%);
   box-shadow:
-    0 0 20px color-mix(in srgb, var(--glow-color) 13%, transparent),
-    inset 0 0 14px color-mix(in srgb, var(--cyber-primary) 8%, transparent);
+    0 20px 45px rgba(54, 45, 25, 0.12),
+    0 0 20px color-mix(in srgb, var(--glow-color) 8%, transparent),
+    inset 0 0 14px rgba(255, 255, 255, 0.32);
 }
 
 .cyber-chip {
   border: 1px solid color-mix(in srgb, var(--matrix-green) 36%, transparent);
-  color: var(--cyber-primary-light);
+  color: var(--cyber-primary);
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--matrix-green) 10%, transparent), transparent),
     color-mix(in srgb, var(--cyber-primary) 6%, transparent);
@@ -243,7 +245,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cyber-dark);
+  background: #eadfbe;
   border-left: 1px solid var(--cyber-primary-dark);
 }
 
@@ -331,14 +333,14 @@ body {
 .hero-shell {
   position: relative;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--cyber-primary) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cyber-primary) 18%, var(--cyber-primary-dark) 28%);
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--cyber-primary) 8%, transparent), transparent 30%),
-    linear-gradient(180deg, rgba(57, 255, 20, 0.035), transparent 45%),
-    rgba(16, 18, 12, 0.78);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.32), transparent 30%),
+    linear-gradient(180deg, rgba(57, 255, 20, 0.05), transparent 45%),
+    rgba(255, 250, 232, 0.74);
   box-shadow:
-    0 24px 80px rgba(0, 0, 0, 0.38),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    0 24px 80px rgba(54, 45, 25, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.42);
   backdrop-filter: blur(16px);
 }
 
@@ -369,11 +371,13 @@ body {
 /* Theme transition */
 
 .terminal-window {
-  border: 1px solid color-mix(in srgb, var(--cyber-primary) 24%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cyber-primary) 18%, var(--cyber-primary-dark) 30%);
   background:
-    linear-gradient(180deg, rgba(232, 220, 195, 0.045), transparent 42%),
-    linear-gradient(180deg, rgba(12, 14, 9, 0.96), rgba(18, 21, 13, 0.9));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent 42%),
+    linear-gradient(180deg, rgba(255, 250, 232, 0.96), rgba(235, 224, 196, 0.88));
+  box-shadow:
+    0 18px 48px rgba(54, 45, 25, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .terminal-bar {
@@ -383,7 +387,7 @@ body {
   gap: 1rem;
   padding: 0.8rem 1rem;
   border-bottom: 1px solid color-mix(in srgb, var(--cyber-primary) 18%, transparent);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(29, 40, 27, 0.035);
 }
 
 .terminal-dots {

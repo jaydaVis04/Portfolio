@@ -10,7 +10,7 @@ export default function Navigation() {
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(5, 8, 7, 0.2)', 'rgba(5, 8, 7, 0.88)']
+    ['rgba(247, 239, 217, 0.42)', 'rgba(247, 239, 217, 0.88)']
   );
 
   return (
@@ -83,7 +83,7 @@ export default function Navigation() {
         initial={false}
         animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
         className="md:hidden overflow-hidden border-t border-[var(--cyber-primary)]/20"
-        style={{ backgroundColor: 'rgba(4, 8, 6, 0.96)' }}
+        style={{ backgroundColor: 'rgba(247, 239, 217, 0.96)' }}
       >
         <div className="px-4 py-4 space-y-4">
           {['About', 'Experience', 'Labs', 'Projects', 'Contact'].map((item) => (

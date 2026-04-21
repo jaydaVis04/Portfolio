@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         // Green theme (default)
         'cyber-green': '#39ff14',
-        'cyber-dark': '#11130d',
+        'cyber-dark': '#f4ecd8',
         'cyber-green-dark': '#35543c',
         'cyber-green-light': '#dfffd2',
         // Blue theme

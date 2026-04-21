@@ -10,7 +10,7 @@ const workExperience = [
     location: 'Hempstead, NY',
     period: 'Dr. Shan',
     description:
-      'Provide academic support for Operating Systems students through one-on-one and small-group tutoring, assignment guidance, and exam review sessions. Help students break down processes, threads, CPU scheduling, synchronization, memory management, and file systems into practical problem-solving approaches.',
+      'Tutor students on processes, threads, scheduling, synchronization, memory management, file systems, and course assignments.',
   },
   {
     title: 'STEM Teacher',
@@ -18,7 +18,7 @@ const workExperience = [
     location: 'Westbury, NY',
     period: 'January 2024 - Present',
     description:
-      'Design and lead structured robotics and engineering sessions for 100+ students, developing problem-solving, logical reasoning, and teamwork through hands-on STEM activities.',
+      'Lead robotics and engineering sessions for 100+ students through hands-on STEM activities.',
   },
   {
     title: 'Coding Coach',
@@ -26,7 +26,7 @@ const workExperience = [
     location: 'Bellmore, NY',
     period: 'March 2023 - November 2023',
     description:
-      'Delivered project-based Python and Scratch instruction for 100+ students, guiding debugging, iteration, and foundational programming habits.',
+      'Taught Python and Scratch through project-based debugging and programming practice.',
   },
 ];
 
@@ -34,25 +34,25 @@ const internshipTracks = [
   {
     title: 'SOC / Detection',
     summary:
-      'Security+ certified and strongest in phishing analysis, log review, packet inspection, timeline thinking, and translating technical findings into clean incident notes.',
+      'Phishing analysis, logs, packet captures, triage, and incident notes.',
     skills: ['Alert triage', 'IOC analysis', 'Wireshark', 'tcpdump', 'Linux auth logs', 'Threat intel'],
   },
   {
     title: 'Security Engineering',
     summary:
-      'Comfortable with secure service setup, TLS/HTTPS deployment, DNS and SSH hardening, IAM concepts, Linux administration, and infrastructure-level security controls.',
+      'Secure service setup, TLS, DNS, SSH, Linux, identity, and infrastructure controls.',
     skills: ['TLS / X.509', 'Apache', 'Bind9', 'LDAP', 'NFS', 'OpenSSH'],
   },
   {
     title: 'Offensive Security',
     summary:
-      'Hands-on with exploit reproduction, shellcode analysis, format string and buffer overflow labs, protocol abuse testing, and clear remediation-oriented reporting.',
+      'Exploit reproduction, shellcode analysis, GDB, protocol abuse, and reporting.',
     skills: ['GDB', 'Metasploit', 'Burp Suite', 'Nmap', 'Assembly', 'Exploit dev'],
   },
   {
     title: 'Software / Backend',
     summary:
-      'Built secure APIs, telemetry pipelines, automated testing, data models, and CLI workflows with a focus on structure, repeatability, and maintainable architecture.',
+      'Secure APIs, telemetry pipelines, testing, data models, and CLI workflows.',
     skills: ['Node.js', 'TypeScript', 'Python', 'PostgreSQL', 'Prisma', 'Jest / Pytest'],
   },
 ];
@@ -82,8 +82,8 @@ export default function Experience() {
             EXPERIENCE
           </h2>
           <div className="mb-6 h-1 w-32" style={{ backgroundColor: 'var(--cyber-primary)' }} />
-          <p className="max-w-3xl font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
-            The work history shows leadership and teaching range, while the track cards below make it obvious where that experience maps into real internship roles.
+          <p className="max-w-2xl font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
+            Teaching, mentoring, and technical work mapped to the internship paths I am pursuing.
           </p>
         </motion.div>
 

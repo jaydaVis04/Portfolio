@@ -17,22 +17,22 @@ const focusAreas = [
   {
     title: 'SOC / Detection',
     description:
-      'Focused on phishing investigation, packet capture analysis, alert triage, IOC review, Linux auth logs, and documentation that can actually support incident workflows.',
+      'Phishing analysis, logs, packet captures, IOC review, and incident notes.',
   },
   {
     title: 'Security Engineering',
     description:
-      'Strongest in secure service configuration, TLS deployment, DNS and SSH hardening, Linux administration, and building systems that encode security controls instead of describing them.',
+      'TLS, DNS, SSH, Linux hardening, identity, and secure service configuration.',
   },
   {
     title: 'Offensive Security',
     description:
-      'Hands-on exploit development and low-level debugging work across buffer overflows, shellcode inspection, GDB analysis, command injection, replay attacks, and Metasploit-driven validation.',
+      'Exploit reproduction, GDB, shellcode, command injection, and low-level debugging.',
   },
   {
     title: 'Software Engineering',
     description:
-      'Backend-heavy engineering work in TypeScript, Node.js, Python, PostgreSQL, testing, automation, and API design, with growing frontend work in Next.js, Svelte, and Ionic.',
+      'Backend APIs, data models, testing, automation, and full-stack project work.',
   },
 ];
 
@@ -64,8 +64,8 @@ export default function About() {
             ABOUT
           </h2>
           <div className="mb-6 h-1 w-32" style={{ backgroundColor: 'var(--cyber-primary)' }} />
-          <p className="max-w-3xl font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>
-            Computer Science and Cybersecurity major with a minor in Finance, focused on secure systems, networking, threat analysis, and practical security engineering. My coursework and labs emphasize operating systems, network security, ethical hacking, databases, and applied cybersecurity, with a strong bias toward turning technical findings into clear documentation and useful recommendations.
+          <p className="max-w-2xl font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
+            Computer Science and Cybersecurity major focused on secure systems, networking, threat analysis, and clear technical communication.
           </p>
         </motion.div>
 
@@ -91,18 +91,12 @@ export default function About() {
                 <h3 className="mb-4 font-display text-2xl font-bold uppercase tracking-[0.08em]" style={{ color: 'var(--cyber-primary-light)' }}>
                   Who I Am
                 </h3>
-                <div className="space-y-4 font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.82 }}>
+                <div className="space-y-4 font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.82 }}>
                   <p>
-                    I care most about the intersection between how systems are built and how they fail. That is why my work keeps crossing between backend engineering, secure configuration, incident-style analysis, and offensive labs.
+                    My work sits between software engineering, security operations, and offensive labs. I like understanding systems deeply enough to build them, defend them, and explain where they fail.
                   </p>
                   <p>
-                    The teaching and mentorship roles matter here too. They forced me to explain technical ideas clearly, structure information, and stay patient while debugging with other people, which translates directly into better engineering and better security documentation.
-                  </p>
-                  <p>
-                    That now includes serving as a Teaching Assistant for Operating Systems at Hofstra, where I help students reason through processes, threads, scheduling, synchronization, memory management, file systems, and course assignments.
-                  </p>
-                  <p>
-                    I am not trying to look like I only fit one internship lane. The portfolio now reflects the truth more accurately: I can contribute in SOC-oriented roles, security engineering, backend engineering, cloud security, and offensive security environments depending on the team.
+                    Teaching is part of that identity too. As an Operating Systems TA and STEM instructor, I practice breaking complex ideas into clear, useful explanations.
                   </p>
                 </div>
               </div>

@@ -106,8 +106,8 @@ export default function Projects() {
             PROJECTS
           </h2>
           <div className="mb-6 h-1 w-32" style={{ backgroundColor: 'var(--cyber-primary)' }} />
-          <p className="max-w-3xl font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
-            These are the projects that best represent how I think: collect signals, structure systems cleanly, test the right failure cases, and ship outputs that are useful to other people.
+          <p className="max-w-2xl font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
+            A few representative builds across phishing analysis, detection engineering, and secure backend systems.
           </p>
         </motion.div>
 
@@ -134,7 +134,7 @@ export default function Projects() {
                     case-study-{index + 1}
                   </p>
                 </div>
-                <div className="space-y-6 p-6">
+                <div className="space-y-5 p-6">
                   <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                     <div>
                       <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em]" style={{ color: 'var(--cyber-primary)', opacity: 0.56 }}>
@@ -152,15 +152,6 @@ export default function Projects() {
                   <p className="font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.82 }}>
                     {project.description}
                   </p>
-
-                  <div className="grid gap-3">
-                    {project.details.map((detail) => (
-                      <div key={detail} className="terminal-line">
-                        <span className="terminal-prompt">&gt;</span>
-                        <span>{detail}</span>
-                      </div>
-                    ))}
-                  </div>
 
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((item) => (

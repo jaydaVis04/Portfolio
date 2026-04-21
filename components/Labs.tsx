@@ -73,7 +73,7 @@ export default function Labs() {
 
   const allLabs = [...labs['ethical-hacking'], ...labs.cybersecurity, ...labs['cpp-labs']];
   const displayLabs = activeCategory === 'all' ? allLabs : labs[activeCategory];
-  const featuredLabs = displayLabs.slice(0, 6);
+  const featuredLabs = displayLabs.slice(0, 3);
 
   const categories: { id: keyof typeof categoryMeta; count: number }[] = [
     { id: 'all', count: allLabs.length },
@@ -103,8 +103,8 @@ export default function Labs() {
             LABS
           </h2>
           <div className="mb-6 h-1 w-32" style={{ backgroundColor: 'var(--cyber-primary)' }} />
-          <p className="max-w-3xl font-mono text-sm leading-8" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
-            This section is here to prove volume and repetition. The projects show larger systems; the labs show that I have spent real time operating at the command line, debugging memory, hardening services, and validating security concepts across many environments.
+          <p className="max-w-2xl font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
+            A condensed archive of hands-on security, systems, and C++ work. Open the full archive only if you want the deeper list.
           </p>
         </motion.div>
 
@@ -166,7 +166,7 @@ export default function Labs() {
                   {categoryMeta[activeCategory].label.toLowerCase().replaceAll(' ', '.')}.archive
                 </p>
               </div>
-              <div className="grid gap-4 p-6 md:grid-cols-2">
+              <div className="grid gap-4 p-6 md:grid-cols-3">
                 {featuredLabs.map((lab) => (
                   <div key={lab.title} className="cyber-panel p-5">
                     <p className="font-display text-xl font-bold uppercase tracking-[0.05em]" style={{ color: 'var(--cyber-primary-light)' }}>
