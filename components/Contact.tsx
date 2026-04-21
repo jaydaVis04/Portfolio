@@ -37,7 +37,7 @@ export default function Contact() {
       className="relative px-4 py-32"
       style={{
         background:
-          'linear-gradient(180deg, rgba(0,255,65,0.03) 0%, rgba(0,255,65,0.01) 100%)',
+          'linear-gradient(180deg, rgba(57,255,20,0.02) 0%, rgba(232,220,195,0.015) 100%)',
       }}
     >
       <div className="mx-auto max-w-7xl">
@@ -166,7 +166,7 @@ export default function Contact() {
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                     className="w-full border bg-transparent px-4 py-3 font-mono text-sm outline-none transition-colors"
-                    style={{ borderColor: 'rgba(0,255,65,0.24)', color: 'var(--cyber-primary-light)' }}
+                    style={{ borderColor: 'rgba(232,220,195,0.24)', color: 'var(--cyber-primary-light)' }}
                     placeholder="Your name"
                   />
                 </div>
@@ -181,7 +181,7 @@ export default function Contact() {
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     className="w-full border bg-transparent px-4 py-3 font-mono text-sm outline-none transition-colors"
-                    style={{ borderColor: 'rgba(0,255,65,0.24)', color: 'var(--cyber-primary-light)' }}
+                    style={{ borderColor: 'rgba(232,220,195,0.24)', color: 'var(--cyber-primary-light)' }}
                     placeholder="name@example.com"
                   />
                 </div>
@@ -196,7 +196,7 @@ export default function Contact() {
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     className="w-full resize-none border bg-transparent px-4 py-3 font-mono text-sm outline-none transition-colors"
-                    style={{ borderColor: 'rgba(0,255,65,0.24)', color: 'var(--cyber-primary-light)' }}
+                    style={{ borderColor: 'rgba(232,220,195,0.24)', color: 'var(--cyber-primary-light)' }}
                     placeholder="Tell me what role, team, or project you want to discuss."
                   />
                 </div>

@@ -68,7 +68,7 @@ export default function Experience() {
       className="relative px-4 py-32"
       style={{
         background:
-          'linear-gradient(180deg, rgba(0,255,65,0.035) 0%, rgba(0,255,65,0.01) 100%)',
+          'linear-gradient(180deg, rgba(57,255,20,0.022) 0%, rgba(232,220,195,0.018) 100%)',
       }}
     >
       <div className="mx-auto max-w-7xl">
@@ -109,7 +109,7 @@ export default function Experience() {
                 <div key={job.title} className="relative pl-6">
                   <div
                     className="absolute left-0 top-1 h-full w-px"
-                    style={{ background: index === workExperience.length - 1 ? 'linear-gradient(180deg, rgba(0,255,65,0.28), transparent)' : 'rgba(0,255,65,0.28)' }}
+                    style={{ background: index === workExperience.length - 1 ? 'linear-gradient(180deg, rgba(57,255,20,0.16), transparent)' : 'rgba(57,255,20,0.16)' }}
                   />
                   <div
                     className="absolute left-[-5px] top-1 h-3 w-3 rounded-full"

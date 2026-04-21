@@ -9,10 +9,10 @@ module.exports = {
     extend: {
       colors: {
         // Green theme (default)
-        'cyber-green': '#00ff41',
-        'cyber-dark': '#0a0e0d',
-        'cyber-green-dark': '#003d19',
-        'cyber-green-light': '#39ff14',
+        'cyber-green': '#39ff14',
+        'cyber-dark': '#11130d',
+        'cyber-green-dark': '#35543c',
+        'cyber-green-light': '#dfffd2',
         // Blue theme
         'cyber-blue': '#00d9ff',
         'cyber-blue-dark': '#003d4d',

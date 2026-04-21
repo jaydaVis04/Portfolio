@@ -5,26 +5,27 @@
 @tailwind utilities;
 
 :root {
-  --cyber-primary: #00ff41;
-  --cyber-primary-light: #39ff14;
-  --cyber-primary-dark: #003d19;
-  --cyber-dark: #0a0e0d;
-  --cyber-darker: #050807;
-  --cyber-panel: rgba(5, 12, 8, 0.84);
-  --glow-color: #00ff41;
+  --cyber-primary: #e8dcc3;
+  --cyber-primary-light: #fff6dc;
+  --cyber-primary-dark: #35543c;
+  --cyber-dark: #11130d;
+  --cyber-darker: #070806;
+  --cyber-panel: rgba(20, 22, 15, 0.86);
+  --glow-color: #39ff14;
+  --matrix-green: #39ff14;
 }
 
 [data-theme="blue"] {
-  --cyber-primary: #00d9ff;
-  --cyber-primary-light: #33e0ff;
-  --cyber-primary-dark: #003d4d;
+  --cyber-primary: #e8dcc3;
+  --cyber-primary-light: #fff6dc;
+  --cyber-primary-dark: #244751;
   --glow-color: #00d9ff;
 }
 
 [data-theme="red"] {
-  --cyber-primary: #ff0055;
-  --cyber-primary-light: #ff3377;
-  --cyber-primary-dark: #4d0019;
+  --cyber-primary: #e8dcc3;
+  --cyber-primary-light: #fff6dc;
+  --cyber-primary-dark: #53313a;
   --glow-color: #ff0055;
 }
 
@@ -40,9 +41,9 @@ html {
 
 body {
   background:
-    radial-gradient(circle at top, rgba(0, 255, 65, 0.14), transparent 38%),
-    radial-gradient(circle at 80% 20%, rgba(57, 255, 20, 0.08), transparent 24%),
-    linear-gradient(180deg, #020403 0%, #07110b 40%, #040605 100%);
+    radial-gradient(circle at top, rgba(232, 220, 195, 0.1), transparent 34%),
+    radial-gradient(circle at 80% 20%, rgba(57, 255, 20, 0.07), transparent 24%),
+    linear-gradient(180deg, #070806 0%, #12150e 42%, #0a0b08 100%);
   color: var(--cyber-primary);
   font-family: 'JetBrains Mono', monospace;
   overflow-x: hidden;
@@ -84,11 +85,11 @@ body {
   height: 2px;
   background: linear-gradient(
     to bottom,
-    rgba(0, 255, 65, 0) 0%,
+    rgba(57, 255, 20, 0) 0%,
     var(--glow-color) 50%,
-    rgba(0, 255, 65, 0) 100%
+    rgba(57, 255, 20, 0) 100%
   );
-  opacity: 0.15;
+  opacity: 0.07;
   pointer-events: none;
   z-index: 9998;
   animation: scan 12s linear infinite;
@@ -103,8 +104,8 @@ body {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(0, 255, 65, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 65, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(232, 220, 195, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 255, 20, 0.018) 1px, transparent 1px);
   background-size: 42px 42px;
   pointer-events: none;
   z-index: 0;
@@ -172,38 +173,35 @@ body {
 /* Neon Glow - Dynamic, lighter on mobile */
 .neon-text {
   text-shadow: 
-    0 0 5px var(--glow-color),
-    0 0 8px var(--glow-color);
+    0 0 10px color-mix(in srgb, var(--glow-color) 18%, transparent),
+    0 0 22px color-mix(in srgb, var(--glow-color) 10%, transparent);
   transition: text-shadow 0.8s ease-in-out;
 }
 
 @media (min-width: 768px) {
   .neon-text {
     text-shadow: 
-      0 0 7px var(--glow-color),
-      0 0 10px var(--glow-color),
-      0 0 21px var(--glow-color),
-      0 0 42px var(--glow-color),
-      0 0 82px var(--glow-color);
+      0 0 10px color-mix(in srgb, var(--glow-color) 20%, transparent),
+      0 0 28px color-mix(in srgb, var(--glow-color) 12%, transparent),
+      0 0 64px color-mix(in srgb, var(--glow-color) 8%, transparent);
   }
 }
 
 .neon-border {
   box-shadow: 
-    0 0 5px var(--glow-color),
-    0 0 10px var(--glow-color),
-    inset 0 0 5px var(--glow-color);
+    0 0 8px color-mix(in srgb, var(--glow-color) 14%, transparent),
+    inset 0 0 8px color-mix(in srgb, var(--glow-color) 8%, transparent);
   transition: box-shadow 0.8s ease-in-out;
 }
 
 .cyber-panel {
-  border: 1px solid color-mix(in srgb, var(--cyber-primary) 45%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cyber-primary) 26%, transparent);
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--cyber-primary) 9%, transparent), transparent 65%),
-    rgba(10, 14, 13, 0.82);
+    linear-gradient(180deg, color-mix(in srgb, var(--cyber-primary) 7%, transparent), transparent 68%),
+    var(--cyber-panel);
   box-shadow:
-    0 0 10px color-mix(in srgb, var(--glow-color) 20%, transparent),
-    inset 0 0 10px color-mix(in srgb, var(--glow-color) 8%, transparent);
+    0 0 18px color-mix(in srgb, var(--glow-color) 8%, transparent),
+    inset 0 0 12px color-mix(in srgb, var(--cyber-primary) 5%, transparent);
   transition:
     border-color 0.3s ease,
     background-color 0.3s ease,
@@ -215,14 +213,16 @@ body {
 .cyber-panel:focus-visible {
   border-color: color-mix(in srgb, var(--cyber-primary) 80%, white 20%);
   box-shadow:
-    0 0 16px color-mix(in srgb, var(--glow-color) 30%, transparent),
-    inset 0 0 14px color-mix(in srgb, var(--glow-color) 12%, transparent);
+    0 0 20px color-mix(in srgb, var(--glow-color) 13%, transparent),
+    inset 0 0 14px color-mix(in srgb, var(--cyber-primary) 8%, transparent);
 }
 
 .cyber-chip {
-  border: 1px solid color-mix(in srgb, var(--cyber-primary) 38%, transparent);
+  border: 1px solid color-mix(in srgb, var(--matrix-green) 36%, transparent);
   color: var(--cyber-primary-light);
-  background: color-mix(in srgb, var(--cyber-primary) 14%, transparent);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--matrix-green) 10%, transparent), transparent),
+    color-mix(in srgb, var(--cyber-primary) 6%, transparent);
   transition:
     border-color 0.3s ease,
     background-color 0.3s ease,
@@ -232,7 +232,9 @@ body {
 .cyber-chip:hover,
 .cyber-chip:focus-visible {
   border-color: color-mix(in srgb, var(--cyber-primary) 72%, white 10%);
-  background: color-mix(in srgb, var(--cyber-primary) 22%, transparent);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--matrix-green) 15%, transparent), transparent),
+    color-mix(in srgb, var(--cyber-primary) 9%, transparent);
 }
 
 /* Custom Scrollbar */
@@ -256,13 +258,13 @@ body {
 
 /* Selection */
 ::selection {
-  background: var(--cyber-primary);
-  color: var(--cyber-dark);
+  background: color-mix(in srgb, var(--matrix-green) 42%, var(--cyber-primary) 58%);
+  color: var(--cyber-darker);
 }
 
 /* Utilities */
 .text-gradient {
-  background: linear-gradient(135deg, var(--cyber-primary-light), var(--cyber-primary));
+  background: linear-gradient(135deg, var(--cyber-primary-light), var(--matrix-green));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -288,7 +290,7 @@ body {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 0.75rem;
   pointer-events: none;
-  opacity: 0.18;
+  opacity: 0.1;
   mask-image: linear-gradient(to bottom, transparent, black 12%, black 72%, transparent);
 }
 
@@ -301,8 +303,8 @@ body {
   font-family: 'VT323', monospace;
   font-size: clamp(1.5rem, 2vw, 2rem);
   line-height: 0.9;
-  color: var(--cyber-primary-light);
-  text-shadow: 0 0 12px color-mix(in srgb, var(--glow-color) 35%, transparent);
+  color: var(--matrix-green);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--glow-color) 24%, transparent);
   white-space: pre;
   animation: matrix-fall linear infinite;
   will-change: transform;
@@ -316,23 +318,24 @@ body {
   font-size: 0.78rem;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--cyber-primary) 72%, white 12%);
+  color: color-mix(in srgb, var(--cyber-primary) 78%, var(--matrix-green) 22%);
 }
 
 .section-label::before {
   content: '';
   width: 2.75rem;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyber-primary));
+  background: linear-gradient(90deg, transparent, var(--matrix-green));
 }
 
 .hero-shell {
   position: relative;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--cyber-primary) 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cyber-primary) 22%, transparent);
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--cyber-primary) 8%, transparent), transparent 30%),
-    rgba(4, 9, 6, 0.72);
+    linear-gradient(180deg, rgba(57, 255, 20, 0.035), transparent 45%),
+    rgba(16, 18, 12, 0.78);
   box-shadow:
     0 24px 80px rgba(0, 0, 0, 0.38),
     inset 0 0 0 1px rgba(255, 255, 255, 0.02);
@@ -345,7 +348,7 @@ body {
   position: absolute;
   width: 4rem;
   height: 4rem;
-  border-color: color-mix(in srgb, var(--cyber-primary) 54%, transparent);
+  border-color: color-mix(in srgb, var(--matrix-green) 28%, var(--cyber-primary) 18%);
   pointer-events: none;
 }
 
@@ -366,8 +369,10 @@ body {
 /* Theme transition */
 
 .terminal-window {
-  border: 1px solid color-mix(in srgb, var(--cyber-primary) 34%, transparent);
-  background: linear-gradient(180deg, rgba(1, 4, 2, 0.96), rgba(6, 12, 8, 0.88));
+  border: 1px solid color-mix(in srgb, var(--cyber-primary) 24%, transparent);
+  background:
+    linear-gradient(180deg, rgba(232, 220, 195, 0.045), transparent 42%),
+    linear-gradient(180deg, rgba(12, 14, 9, 0.96), rgba(18, 21, 13, 0.9));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
@@ -377,7 +382,7 @@ body {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.8rem 1rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--cyber-primary) 20%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--cyber-primary) 18%, transparent);
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -390,8 +395,8 @@ body {
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--cyber-primary) 60%, transparent);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--glow-color) 25%, transparent);
+  background: color-mix(in srgb, var(--matrix-green) 52%, var(--cyber-primary) 18%);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--glow-color) 16%, transparent);
 }
 
 .terminal-body {
@@ -405,11 +410,11 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.82rem;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--cyber-primary) 78%, white 12%);
+  color: color-mix(in srgb, var(--cyber-primary) 86%, white 8%);
 }
 
 .terminal-prompt {
-  color: var(--cyber-primary-light);
+  color: var(--matrix-green);
 }
 
 @keyframes matrix-fall {

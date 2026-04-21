@@ -89,7 +89,7 @@ export default function Labs() {
       className="relative px-4 py-32"
       style={{
         background:
-          'radial-gradient(circle at 85% 20%, rgba(0,255,65,0.08), transparent 18%), linear-gradient(180deg, rgba(255,255,255,0.01), transparent)',
+          'radial-gradient(circle at 85% 20%, rgba(57,255,20,0.045), transparent 18%), linear-gradient(180deg, rgba(232,220,195,0.012), transparent)',
       }}
     >
       <div className="mx-auto max-w-7xl">
@@ -129,7 +129,7 @@ export default function Labs() {
                     className="border px-4 py-4"
                     style={{
                       borderColor: activeCategory === category.id ? 'var(--cyber-primary)' : 'rgba(0,255,65,0.16)',
-                      backgroundColor: activeCategory === category.id ? 'rgba(0,255,65,0.08)' : 'transparent',
+                      backgroundColor: activeCategory === category.id ? 'rgba(232,220,195,0.055)' : 'transparent',
                     }}
                   >
                     <div className="flex items-center justify-between gap-4">

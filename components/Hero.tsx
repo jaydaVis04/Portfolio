@@ -62,12 +62,12 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{
           background:
-            'radial-gradient(circle at 15% 25%, rgba(0,255,65,0.18), transparent 28%), radial-gradient(circle at 85% 18%, rgba(57,255,20,0.1), transparent 18%), linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.28) 100%)',
+            'radial-gradient(circle at 15% 25%, rgba(232,220,195,0.1), transparent 28%), radial-gradient(circle at 85% 18%, rgba(57,255,20,0.065), transparent 18%), linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.28) 100%)',
         }}
       />
       <div
         className="pointer-events-none absolute inset-x-0 top-24 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(0,255,65,0.4), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(57,255,20,0.18), rgba(232,220,195,0.14), transparent)' }}
       />
 
       <motion.div
