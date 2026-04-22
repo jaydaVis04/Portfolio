@@ -65,7 +65,7 @@ export default function Experience() {
     <section
       id="experience"
       ref={ref}
-      className="relative px-4 py-32"
+      className="relative px-4 py-20 md:py-24"
       style={{
         background:
           'linear-gradient(180deg, rgba(57,255,20,0.022) 0%, rgba(232,220,195,0.018) 100%)',
@@ -87,7 +87,7 @@ export default function Experience() {
           </p>
         </motion.div>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}

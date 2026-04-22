@@ -86,7 +86,7 @@ export default function Labs() {
     <section
       id="labs"
       ref={ref}
-      className="relative px-4 py-32"
+      className="relative px-4 py-20 md:py-24"
       style={{
         background:
           'radial-gradient(circle at 85% 20%, rgba(57,255,20,0.045), transparent 18%), linear-gradient(180deg, rgba(232,220,195,0.012), transparent)',
@@ -108,7 +108,7 @@ export default function Labs() {
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-8 xl:grid-cols-[0.42fr_0.58fr]">
+        <div className="mt-10 grid gap-8 xl:grid-cols-[0.42fr_0.58fr]">
           <motion.aside
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}

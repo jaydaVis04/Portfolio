@@ -52,7 +52,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" ref={ref} className="relative scroll-mt-20 px-4 py-32">
+    <section id="about" ref={ref} className="relative scroll-mt-20 px-4 py-20 md:py-24">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -69,7 +69,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}

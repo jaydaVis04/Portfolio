@@ -94,7 +94,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" ref={ref} className="relative px-4 py-32">
+    <section id="projects" ref={ref} className="relative px-4 py-20 md:py-24">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -111,7 +111,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div className="mt-14 grid gap-8 xl:grid-cols-[1.15fr_0.85fr]">
+        <div className="mt-10 grid gap-8 xl:grid-cols-[1.15fr_0.85fr]">
           <div className="grid gap-6">
             {featuredProjects.map((project, index) => (
               <motion.a
