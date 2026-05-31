@@ -4,6 +4,15 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 
 const labs = {
+  'network-security': [
+    { title: 'Password Hashing and Hashcat Cracking', desc: 'Used Hashcat in Kali to crack unsalted and salted hashes with dictionary, mask, and brute-force attacks; analyzed MD5, SHA256, salts, password policy design, rockyou.txt, and recovered weak passwords including password123, Apple12, hack, dr@ag0nf1re, bubbles, and hunter2.' },
+    { title: 'Web Application Security: SQL Injection', desc: 'Completed PortSwigger SQL injection labs using Burp Suite to inspect requests, alter vulnerable URL parameters, retrieve hidden product data, and bypass authentication into an administrator account.' },
+    { title: 'Web Application Security: Cross-Site Scripting', desc: 'Completed reflected, stored, attribute-based, and DOM XSS labs using Burp Proxy, HTTP history, and Repeater to test payload placement, output encoding gaps, and unsafe client-side sinks.' },
+    { title: 'Network Forensics with Wireshark', desc: 'Investigated multi-PCAP evidence covering scanning, exposed credentials, DNS C2, ICMP fragmentation, credential harvesting, DoS traffic, geolocation, FTP exfiltration, SQL injection, web shells, Zerologon, and malware behavior.' },
+    { title: 'Wireshark and Protocol Analysis', desc: 'Captured and filtered ICMP, HTTP, and TCP traffic; inspected Ethernet II and IPv4 headers, followed HTTP streams, and identified TCP three-way handshake behavior for troubleshooting and protocol analysis.' },
+    { title: 'Denial-of-Service Testing', desc: 'Ran controlled SYN flood simulations with Scapy and Netwox against a Telnet service, monitored traffic in Wireshark, compared tool behavior, and analyzed TCP connection impact in an authorized virtual lab.' },
+    { title: 'Splunk and KQL SOC Investigation Labs', desc: 'Practiced SPL and KQL investigations across Linux authentication logs, web access logs, failed SSH attempts, brute-force logic, 404/scanning behavior, timelines, field extraction, joins, dashboards, false-positive tuning, and MITRE ATT&CK mapping.' },
+  ],
   'ethical-hacking': [
     { title: 'Replay Attack', desc: 'Captured and modified HTTP traffic with tcpdump and netcat, then wrote savepasswd.py to restore critical system files and complete the workflow end to end.' },
     { title: 'DNS Setup and Port Scan', desc: 'Performed authorized DNS enumeration, added records, hardened Bind9, mapped services with nmap and lsof, and completed OS fingerprinting analysis.' },
@@ -49,7 +58,11 @@ const labs = {
 const categoryMeta = {
   all: {
     label: 'All Labs',
-    summary: 'A broad archive across exploit development, secure systems, networking, Linux, and core CS implementation work.',
+    summary: 'A broad archive across network security, detection, exploit development, secure systems, Linux, and core CS work.',
+  },
+  'network-security': {
+    label: 'Network Security',
+    summary: 'Hashcat, Burp Suite, Wireshark, packet forensics, DoS testing, Splunk, KQL, and SOC detection practice.',
   },
   'ethical-hacking': {
     label: 'Ethical Hacking',
@@ -65,18 +78,34 @@ const categoryMeta = {
   },
 };
 
+const keyTools = [
+  'Wireshark',
+  'Burp Suite',
+  'Hashcat',
+  'Splunk SPL',
+  'KQL',
+  'CyberChef',
+  'TCP/HTTP Streams',
+  'FTP-DATA Export',
+  'IPv4 Reassembly',
+  'DNS/HTTP Filters',
+  'TCP Flag Analysis',
+  'MITRE Mapping',
+];
+
 export default function Labs() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [activeCategory, setActiveCategory] = useState<keyof typeof categoryMeta>('all');
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
 
-  const allLabs = [...labs['ethical-hacking'], ...labs.cybersecurity, ...labs['cpp-labs']];
+  const allLabs = [...labs['network-security'], ...labs['ethical-hacking'], ...labs.cybersecurity, ...labs['cpp-labs']];
   const displayLabs = activeCategory === 'all' ? allLabs : labs[activeCategory];
   const featuredLabs = displayLabs.slice(0, 3);
 
   const categories: { id: keyof typeof categoryMeta; count: number }[] = [
     { id: 'all', count: allLabs.length },
+    { id: 'network-security', count: labs['network-security'].length },
     { id: 'ethical-hacking', count: labs['ethical-hacking'].length },
     { id: 'cybersecurity', count: labs.cybersecurity.length },
     { id: 'cpp-labs', count: labs['cpp-labs'].length },
@@ -146,6 +175,19 @@ export default function Labs() {
                   </div>
                 </button>
               ))}
+            </div>
+
+            <div className="mt-6 border-t pt-5" style={{ borderColor: 'rgba(0,255,65,0.14)' }}>
+              <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em]" style={{ color: 'var(--cyber-primary)', opacity: 0.56 }}>
+                Toolchain
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {keyTools.map((tool) => (
+                  <span key={tool} className="cyber-chip px-2.5 py-1.5 text-[0.68rem] font-mono uppercase tracking-[0.1em]">
+                    {tool}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.aside>
 

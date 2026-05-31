@@ -7,7 +7,7 @@ const profileStats = [
   { label: 'Degree', value: 'B.S. Computer Science & Cybersecurity' },
   { label: 'Expected', value: 'May 2027' },
   { label: 'Minor', value: 'Finance' },
-  { label: 'GPA', value: '3.21' },
+  { label: 'GPA', value: '3.30' },
   { label: 'Certification', value: 'CompTIA Security+' },
   { label: 'Academic Role', value: 'Operating Systems TA' },
   { label: 'Location', value: 'Amityville, NY' },
@@ -15,14 +15,14 @@ const profileStats = [
 
 const focusAreas = [
   {
-    title: 'SOC / Detection',
+    title: 'SOC / SIEM Detection',
     description:
-      'Phishing analysis, logs, packet captures, IOC review, and incident notes.',
+      'Splunk SPL, KQL, authentication logs, web logs, detection logic, and triage notes.',
   },
   {
     title: 'Security Engineering',
     description:
-      'TLS, DNS, SSH, Linux hardening, identity, and secure service configuration.',
+      'TLS, DNS, SSH, Linux hardening, identity, secure configuration, and network defense.',
   },
   {
     title: 'Offensive Security',

@@ -34,14 +34,14 @@ const internshipTracks = [
   {
     title: 'SOC / Detection',
     summary:
-      'Phishing analysis, logs, packet captures, triage, and incident notes.',
-    skills: ['Alert triage', 'IOC analysis', 'Wireshark', 'tcpdump', 'Linux auth logs', 'Threat intel'],
+      'SIEM searches, failed-login logic, packet captures, triage, and investigation notes.',
+    skills: ['Splunk SPL', 'KQL', 'Wireshark', 'Linux auth logs', 'MITRE mapping', 'Alert tuning'],
   },
   {
     title: 'Security Engineering',
     summary:
       'Secure service setup, TLS, DNS, SSH, Linux, identity, and infrastructure controls.',
-    skills: ['TLS / X.509', 'Apache', 'Bind9', 'LDAP', 'NFS', 'OpenSSH'],
+    skills: ['TLS / X.509', 'Apache', 'Bind9', 'LDAP', 'NFS', 'Hashcat'],
   },
   {
     title: 'Offensive Security',
