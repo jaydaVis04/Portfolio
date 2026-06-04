@@ -93,6 +93,17 @@ const keyTools = [
   'MITRE Mapping',
 ];
 
+const labRepos = [
+  {
+    label: 'Cybersecurity Labs',
+    href: 'https://github.com/jaydaVis04/Cybersecurity-Labs',
+  },
+  {
+    label: 'Ethical Hacking Labs',
+    href: 'https://github.com/jaydaVis04/Ethical-Hacking-Labs',
+  },
+];
+
 export default function Labs() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -228,6 +239,30 @@ export default function Labs() {
               transition={{ duration: 0.55, delay: 0.3 }}
               className="cyber-panel p-6"
             >
+              <div className="mb-5 flex flex-col gap-3 border-b pb-5 md:flex-row md:items-center md:justify-between" style={{ borderColor: 'rgba(0,255,65,0.14)' }}>
+                <div>
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em]" style={{ color: 'var(--cyber-primary)', opacity: 0.56 }}>
+                    Lab Repositories
+                  </p>
+                  <p className="mt-2 font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.76 }}>
+                    Public writeup archives for the security lab work below.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {labRepos.map((repo) => (
+                    <a
+                      key={repo.href}
+                      href={repo.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cyber-chip px-3 py-2 text-xs font-mono uppercase tracking-[0.14em] transition-transform hover:-translate-y-0.5"
+                    >
+                      {repo.label} ↗
+                    </a>
+                  ))}
+                </div>
+              </div>
+
               <button
                 type="button"
                 onClick={() => setIsArchiveOpen((open) => !open)}

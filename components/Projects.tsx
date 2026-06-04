@@ -24,7 +24,7 @@ const featuredProjects = [
       'Aggregated all signals into a unified JSON report with parallel execution and strong sandbox-flow test coverage.',
     ],
     tech: ['Python', 'Multipass', 'Google Safe Browsing', 'VirusTotal', 'TLS metadata'],
-    link: 'https://github.com/jaydaVis04?tab=repositories',
+    link: 'https://github.com/jaydaVis04/Rodman-Phishing-Prevention',
   },
   {
     title: 'SecPipe',
@@ -37,7 +37,7 @@ const featuredProjects = [
       'Designed a plugin-style parser / detection / output registry architecture with type hints, pytest coverage, and GitHub Actions CI.',
     ],
     tech: ['Python', 'MITRE ATT&CK', 'SQLite', 'Pytest', 'GitHub Actions', 'JSONL'],
-    link: 'https://github.com/jaydaVis04?tab=repositories',
+    link: 'https://github.com/jaydaVis04/secpipe',
   },
   {
     title: 'jLedger',
@@ -50,22 +50,17 @@ const featuredProjects = [
       'Backed core flows with Jest and Supertest integration tests to catch auth and ledger regressions.',
     ],
     tech: ['TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma', 'Jest'],
-    link: 'https://github.com/jaydaVis04?tab=repositories',
+    link: 'https://github.com/jaydaVis04/jLedger',
   },
 ];
 
 const supportingProjects = [
   {
-    title: 'Student Management System',
-    lane: 'C++ / Data systems',
-    summary:
-      'C++ application for teacher-managed student records with planned frontend support, authentication, secure file handling, MySQL storage, and unique student ID generation.',
-  },
-  {
     title: 'My Todo App',
     lane: 'Frontend / UX',
     summary:
       'Responsive task manager built with Svelte, Ionic-Svelte, HTML, and CSS, including task creation, toggling, keyboard shortcuts, dark mode, gradients, and animation polish.',
+    link: 'https://github.com/jaydaVis04/Todo-App',
   },
   {
     title: 'Web Data Extractor',
@@ -176,19 +171,51 @@ export default function Projects() {
                 Supporting Work
               </h3>
               <div className="mt-5 space-y-5">
-                {supportingProjects.map((project) => (
-                  <div key={project.title} className="border-l pl-4" style={{ borderColor: 'rgba(0,255,65,0.16)' }}>
-                    <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em]" style={{ color: 'var(--cyber-primary)', opacity: 0.56 }}>
-                      {project.lane}
-                    </p>
-                    <p className="mt-2 font-display text-xl font-bold" style={{ color: 'var(--cyber-primary-light)' }}>
-                      {project.title}
-                    </p>
-                    <p className="mt-2 font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
-                      {project.summary}
-                    </p>
-                  </div>
-                ))}
+                {supportingProjects.map((project) => {
+                  const content = (
+                    <>
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em]" style={{ color: 'var(--cyber-primary)', opacity: 0.56 }}>
+                            {project.lane}
+                          </p>
+                          <p className="mt-2 font-display text-xl font-bold" style={{ color: 'var(--cyber-primary-light)' }}>
+                            {project.title}
+                          </p>
+                        </div>
+                        {'link' in project && project.link ? (
+                          <span className="font-mono text-xs uppercase tracking-[0.16em]" style={{ color: 'var(--cyber-primary)' }}>
+                            Repo ↗
+                          </span>
+                        ) : null}
+                      </div>
+                      <p className="mt-2 font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
+                        {project.summary}
+                      </p>
+                    </>
+                  );
+
+                  if ('link' in project && project.link) {
+                    return (
+                      <a
+                        key={project.title}
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block border-l pl-4 transition-transform hover:translate-x-1"
+                        style={{ borderColor: 'rgba(0,255,65,0.16)' }}
+                      >
+                        {content}
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <div key={project.title} className="border-l pl-4" style={{ borderColor: 'rgba(0,255,65,0.16)' }}>
+                      {content}
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
 
