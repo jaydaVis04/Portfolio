@@ -7,7 +7,7 @@ const profileStats = [
   { label: 'Degree', value: 'B.S. Computer Science & Cybersecurity' },
   { label: 'Expected', value: 'May 2027' },
   { label: 'Minor', value: 'Finance' },
-  { label: 'GPA', value: '3.30' },
+  { label: 'GPA', value: '3.31' },
   { label: 'Certification', value: 'CompTIA Security+' },
   { label: 'Academic Role', value: 'Operating Systems TA' },
   { label: 'Location', value: 'Amityville, NY' },
