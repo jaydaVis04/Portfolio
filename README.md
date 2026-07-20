@@ -11,13 +11,6 @@ A next-generation interactive portfolio with cyberpunk theme and dynamic color s
 - **Red theme** → Red Team/Offensive Security resume
 - **Smooth color transitions** across entire UI
 
-### Fixed Issues
-✅ **Fast cursor** - No lag, instant follow
-✅ **All labs included** - 40+ labs with filtering
-✅ **Complete work history** - All 5 jobs listed
-✅ **Privacy protected** - No phone/location
-✅ **3 downloadable resumes** - PDF files included
-
 ### Visual Effects
 - Custom cursor with instant tracking
 - Floating cubes animation
@@ -25,14 +18,6 @@ A next-generation interactive portfolio with cyberpunk theme and dynamic color s
 - Grid background
 - Neon glows
 - Theme-aware colors
-
-## 🚀 Quick Start
-
-```bash
-npm install
-npm run dev
-# Visit http://localhost:3000
-```
 
 ## 📁 Structure
 
@@ -82,14 +67,6 @@ portfolio/
 
 Edit `/lib/ThemeContext.tsx` to modify themes.
 Edit `/components/ResumeSelector.tsx` to change resume mappings.
-
-## 🚀 Deploy to Vercel
-
-1. Push to GitHub
-2. Import on Vercel
-3. Deploy!
-
-Vercel auto-detects Next.js configuration.
 
 ## 📊 Features Checklist
 
