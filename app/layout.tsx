@@ -3,9 +3,9 @@ import './globals.css'
 import { ThemeProvider } from '@/lib/ThemeContext'
 
 export const metadata: Metadata = {
-  title: 'Jaydyn Davis | CS & Cybersecurity Portfolio',
-  description: 'CS & Cybersecurity student specializing in offensive/defensive security and full-stack development. View projects, experience, and get in touch.',
-  keywords: ['cybersecurity', 'software engineering', 'computer science', 'portfolio'],
+  title: 'Jaydyn Davis | Reverse Engineering & Vulnerability Research',
+  description: 'Secret-cleared Computer Science and Cybersecurity student focused on reverse engineering, vulnerability research, embedded systems, and low-level security analysis.',
+  keywords: ['reverse engineering', 'vulnerability research', 'cybersecurity', 'computer architecture', 'low-level security', 'portfolio'],
   authors: [{ name: 'Jaydyn Davis' }],
 }
 
