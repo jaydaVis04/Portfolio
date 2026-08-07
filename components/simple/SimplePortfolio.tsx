@@ -20,6 +20,7 @@ const tools = [
   'x86/x64 Assembly',
   'GDB',
   'Ghidra',
+  'IDA Pro',
   'Immunity Debugger',
   'Linux',
   'Python',
@@ -27,7 +28,6 @@ const tools = [
   'tcpdump',
   'Metasploit',
   'Splunk SPL',
-  'KQL',
 ];
 
 const facts = [
