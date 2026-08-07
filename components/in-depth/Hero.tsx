@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-const highlights = ['Security+', 'CS + Cybersecurity', 'May 2027', 'OS Teaching Assistant'];
+const highlights = ['Reverse Engineering', 'CS + Cybersecurity', 'May 2027', 'OS Teaching Assistant'];
 
 export default function Hero() {
   return (

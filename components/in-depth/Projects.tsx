@@ -41,9 +41,9 @@ const featuredProjects = [
   },
   {
     title: 'jLedger',
-    subtitle: 'Secure backend / financial data integrity',
+    subtitle: 'Secure backend / transaction integrity',
     description:
-      'Built a secure personal finance ledger with a TypeScript Node.js Express API, PostgreSQL, Prisma, JWT auth, refresh token rotation, and RBAC.',
+      'Built a secure transaction ledger with a TypeScript Node.js Express API, PostgreSQL, Prisma, JWT auth, refresh token rotation, and RBAC.',
     details: [
       'Used HttpOnly cookies for refresh token rotation and enforced an append-only ledger model at the database level.',
       'Derived balances from transaction line items instead of mutating state directly, improving traceability.',

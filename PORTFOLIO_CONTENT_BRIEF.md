@@ -39,7 +39,6 @@ repeatable research workflows.
 
 - Hofstra University, Hempstead, NY
 - Bachelor of Science in Computer Science & Cybersecurity
-- Minor in Finance
 - GPA: 3.30
 - Expected graduation: December 2027
 - Secret security clearance
@@ -218,12 +217,12 @@ risk reporting.
 - Parallelized independent detectors and added pytest coverage for sandbox
   provisioning, analysis, cleanup, and JSON report generation.
 
-### 5. jLedger Personal Finance Ledger
+### 5. jLedger Secure Ledger
 
-**Focus:** secure application design, accounting data integrity, and access
+**Focus:** secure application design, transaction integrity, and access
 control.
 
-- Built a TypeScript and Node.js/Express personal finance ledger backed by
+- Built a TypeScript and Node.js/Express secure transaction ledger backed by
   PostgreSQL and Prisma.
 - Implemented JWT authentication, refresh-token rotation with HttpOnly
   cookies, and role-based access control.
@@ -321,7 +320,6 @@ and hands-on STEM skills.
 ## Education and Recognition
 
 - Hofstra University, Bachelor of Science in Computer Science & Cybersecurity
-- Minor in Finance
 - GPA: 3.30
 - Expected graduation: December 2027
 - Dean's List five times: Spring 2023, Fall 2023, Spring 2025, Fall 2025,
