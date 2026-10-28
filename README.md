@@ -1,86 +1,30 @@
-# Jaydyn Davis - Portfolio
+# Jaydyn Davis Portfolio
 
-A next-generation interactive portfolio with cyberpunk theme and dynamic color switching.
+A concise portfolio focused on reverse engineering and vulnerability research.
 
-## ✨ Features
+- `/`: short overview with Battelle experience, HUCTF recognition, selected
+  projects, and direct contact links.
+- `/in-depth`: experience, project implementation details, expandable lab
+  archives, technical skills, education, and teaching.
 
-### Interactive Resume Selector with Theme Switching
-- **Hover over resumes** to preview theme colors
-- **Green theme** → Software Engineering resume
-- **Blue theme** → Blue Team/Defensive Security resume  
-- **Red theme** → Red Team/Offensive Security resume
-- **Smooth color transitions** across entire UI
+## Development
 
-### Visual Effects
-- Custom cursor with instant tracking
-- Floating cubes animation
-- Scanline CRT effect
-- Grid background
-- Neon glows
-- Theme-aware colors
-
-## 📁 Structure
-
-```
-portfolio/
-├── app/
-│   ├── globals.css      # Theme-aware styles
-│   ├── layout.tsx        # Root layout
-│   └── page.tsx          # Main page
-├── components/
-│   ├── About.tsx         # Bio & skills
-│   ├── Contact.tsx       # Contact (no phone/location)
-│   ├── CustomCursor.tsx  # Fast cursor
-│   ├── Experience.tsx    # All 5 jobs
-│   ├── Footer.tsx        # Footer
-│   ├── Hero.tsx          # Landing
-│   ├── Labs.tsx          # ALL 40+ labs with filters
-│   ├── Navigation.tsx    # Nav with resume selector
-│   ├── Projects.tsx      # Featured + GitHub
-│   └── ResumeSelector.tsx # Theme-switching dropdown
-├── lib/
-│   └── ThemeContext.tsx  # Theme state management
-└── public/
-    ├── Jaydyn_Davis_Software_Egineering_Resume.pdf
-    ├── Jaydyn_Davis_BLUE_TEAM_Resume.pdf
-    └── Jaydyn_Davis_RED_TEAM_Resume.pdf
+```sh
+npm install
+npm run dev
+npm run build
+npm start
 ```
 
-## 🎨 Color Themes
+## Content
 
-**Default (Green)** - Software Engineering
-- Primary: #00ff41
-- Light: #39ff14
-- Dark: #003d19
+Shared facts, skills, projects, and work experience live in
+`lib/portfolio.ts`. Lab entries live in `lib/labs.ts`. Uploaded photos
+are served from `public/images/`. UI decisions are documented in
+`doc/ui-design-spec.md`.
 
-**Blue** - Defensive Security  
-- Primary: #00d9ff
-- Light: #33e0ff
-- Dark: #003d4d
+The original resume PDFs remain in `public/` as legacy assets. The
+portfolio does not link them because their education details are outdated.
 
-**Red** - Offensive Security
-- Primary: #ff0055
-- Light: #ff3377
-- Dark: #4d0019
-
-## 🔧 Customization
-
-Edit `/lib/ThemeContext.tsx` to modify themes.
-Edit `/components/ResumeSelector.tsx` to change resume mappings.
-
-## 📊 Features Checklist
-
-✅ Fast cursor (no lag)
-✅ Theme switching on resume hover
-✅ All 40+ labs included
-✅ All 5 work experiences
-✅ Privacy protected (no phone/location)
-✅ 3 downloadable PDF resumes
-✅ GitHub API integration
-✅ Fully responsive
-✅ SEO optimized
-
----
-
-Built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
-# Portfolio
+Built with Next.js, TypeScript, and CSS. Both pages render on the server. Native disclosures and section links work
+without JavaScript; the mobile menu adds close-on-select and Escape support.

@@ -1,172 +1,39 @@
-'use client';
-
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-
-const workExperience = [
-  {
-    title: 'Teaching Assistant, Operating Systems',
-    company: 'Hofstra University',
-    location: 'Hempstead, NY',
-    period: 'Dr. Shan',
-    description:
-      'Tutor students on processes, threads, scheduling, synchronization, memory management, file systems, and course assignments.',
-  },
-  {
-    title: 'STEM Teacher',
-    company: 'Snapology',
-    location: 'Westbury, NY',
-    period: 'January 2024 - Present',
-    description:
-      'Lead robotics and engineering sessions for 100+ students through hands-on STEM activities.',
-  },
-  {
-    title: 'Coding Coach',
-    company: 'The Coder School',
-    location: 'Bellmore, NY',
-    period: 'March 2023 - November 2023',
-    description:
-      'Taught Python and Scratch through project-based debugging and programming practice.',
-  },
-];
-
-const internshipTracks = [
-  {
-    title: 'SOC / Detection',
-    summary:
-      'SIEM searches, failed-login logic, packet captures, triage, and investigation notes.',
-    skills: ['Splunk SPL', 'KQL', 'Wireshark', 'Linux auth logs', 'MITRE mapping', 'Alert tuning'],
-  },
-  {
-    title: 'Security Engineering',
-    summary:
-      'Secure service setup, TLS, DNS, SSH, Linux, identity, and infrastructure controls.',
-    skills: ['TLS / X.509', 'Apache', 'Bind9', 'LDAP', 'NFS', 'Hashcat'],
-  },
-  {
-    title: 'Offensive Security',
-    summary:
-      'Exploit reproduction, shellcode analysis, GDB, protocol abuse, and reporting.',
-    skills: ['GDB', 'Metasploit', 'Burp Suite', 'Nmap', 'Assembly', 'Exploit dev'],
-  },
-  {
-    title: 'Software / Backend',
-    summary:
-      'Secure APIs, telemetry pipelines, testing, data models, and CLI workflows.',
-    skills: ['Node.js', 'TypeScript', 'Python', 'PostgreSQL', 'Prisma', 'Jest / Pytest'],
-  },
-];
+import Image from 'next/image';
+import { battelle, teaching } from '@/lib/portfolio';
 
 export default function Experience() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   return (
-    <section
-      id="experience"
-      ref={ref}
-      className="relative px-4 py-20 md:py-24"
-      style={{
-        background:
-          'linear-gradient(180deg, rgba(57,255,20,0.022) 0%, rgba(232,220,195,0.018) 100%)',
-      }}
-    >
-      <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="section-label mb-4">Experience / Internship Paths</p>
-          <h2 className="mb-4 text-5xl font-display font-black neon-text md:text-7xl">
-            EXPERIENCE
-          </h2>
-          <div className="mb-6 h-1 w-32" style={{ backgroundColor: 'var(--cyber-primary)' }} />
-          <p className="max-w-2xl font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
-            Teaching, mentoring, and technical work mapped to the internship paths I am pursuing.
-          </p>
-        </motion.div>
-
-        <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="terminal-window overflow-hidden"
-          >
-            <div className="terminal-bar">
-              <div className="terminal-dots">
-                <span />
-                <span />
-                <span />
-              </div>
-              <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em]" style={{ color: 'var(--cyber-primary)', opacity: 0.62 }}>
-                leadership.timeline
-              </p>
-            </div>
-            <div className="space-y-8 p-6">
-              {workExperience.map((job, index) => (
-                <div key={job.title} className="relative pl-6">
-                  <div
-                    className="absolute left-0 top-1 h-full w-px"
-                    style={{ background: index === workExperience.length - 1 ? 'linear-gradient(180deg, rgba(57,255,20,0.16), transparent)' : 'rgba(57,255,20,0.16)' }}
-                  />
-                  <div
-                    className="absolute left-[-5px] top-1 h-3 w-3 rounded-full"
-                    style={{ backgroundColor: 'var(--cyber-primary-light)', boxShadow: '0 0 14px var(--glow-color)' }}
-                  />
-                  <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em]" style={{ color: 'var(--cyber-primary)', opacity: 0.58 }}>
-                    {job.period}
-                  </p>
-                  <h3 className="mt-3 font-display text-2xl font-bold uppercase tracking-[0.06em]" style={{ color: 'var(--cyber-primary-light)' }}>
-                    {job.title}
-                  </h3>
-                  <p className="mt-1 font-mono text-sm" style={{ color: 'var(--cyber-primary)', opacity: 0.76 }}>
-                    {job.company} • {job.location}
-                  </p>
-                  <p className="mt-3 font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.8 }}>
-                    {job.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="grid gap-6 md:grid-cols-2"
-          >
-            {internshipTracks.map((track, index) => (
-              <motion.div
-                key={track.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.45, delay: 0.35 + index * 0.08 }}
-                className="cyber-panel p-6"
-              >
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em]" style={{ color: 'var(--cyber-primary)', opacity: 0.56 }}>
-                  Internship lane
-                </p>
-                <h3 className="mt-3 font-display text-2xl font-bold uppercase tracking-[0.08em]" style={{ color: 'var(--cyber-primary-light)' }}>
-                  {track.title}
-                </h3>
-                <p className="mt-4 font-mono text-sm leading-7" style={{ color: 'var(--cyber-primary)', opacity: 0.78 }}>
-                  {track.summary}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {track.skills.map((skill) => (
-                    <span key={skill} className="cyber-chip px-3 py-2 text-xs font-mono uppercase tracking-[0.14em]">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+    <section id="experience" className="detail-section" aria-labelledby="experience-title">
+      <div className="section-heading">
+        <h2 id="experience-title">Experience</h2>
+        <p>Research, development, and technical teaching.</p>
       </div>
+      <article className="battelle-feature">
+        <div className="battelle-photo">
+          <Image src="/images/battelle.jpeg" alt="Jaydyn Davis at Battelle" fill sizes="(max-width: 760px) 100vw, 340px" />
+        </div>
+        <div className="battelle-work">
+          <p className="context">Mission Focused Tools / {battelle.location}</p>
+          <h3>Battelle</h3>
+          <p className="job-role">{battelle.role}</p>
+          <p className="job-period">{battelle.period}</p>
+          <dl className="research-highlights">
+            {battelle.highlights.map((highlight) => <div key={highlight.title}><dt>{highlight.title}</dt><dd>{highlight.text}</dd></div>)}
+          </dl>
+        </div>
+      </article>
+      <details className="disclosure teaching-disclosure">
+        <summary><span>Teaching & mentorship<span className="summary-note">Operating Systems TA, STEM teaching, coding coaching</span></span><span className="disclosure-indicator" aria-hidden="true" /></summary>
+        <div className="teaching-list">
+          {teaching.map((job) => (
+            <article key={job.role}>
+              <h3>{job.role}</h3>
+              <p className="job-period">{job.organization} / {job.context}</p>
+              <p>{job.description}</p>
+            </article>
+          ))}
+        </div>
+      </details>
     </section>
   );
 }
