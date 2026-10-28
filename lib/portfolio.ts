@@ -112,7 +112,7 @@ export const supportingProjects = [
 export const skillGroups = [
   {
     title: 'Reverse engineering',
-    skills: 'Ghidra, Binary Ninja, GDB/pwndbg, Immunity Debugger, disassembly, decompilation, control-flow and memory analysis',
+    skills: 'Ghidra, Binary Ninja, IDA Pro, GDB/pwndbg, Immunity Debugger, disassembly, decompilation, control-flow and memory analysis',
   },
   {
     title: 'Systems and architectures',
